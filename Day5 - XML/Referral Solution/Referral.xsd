@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--data type creation-->
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="address" type="xs:string"/>
+	<xs:element name="phonenumber" type="xs:string"/>
+	<xs:element name="degree" type="xs:string"/>
+	<xs:element name="empno" type="xs:int"/>
+<!--complex data type creation-->
+	<xs:complexType name="referraltype">
+		<xs:sequence>
+			<xs:element ref="name"/>	
+			<xs:element ref="address"/>
+			<xs:element ref="phonenumber"/>
+			<xs:element ref="degree"/>
+			<xs:element ref="empno"/>
+		</xs:sequence>
+			<xs:attribute name="no">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+	</xs:complexType>
+	<xs:element name="referral" type="referraltype" />
+		<xs:element name="referrals">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element ref="referral" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+</xs:schema>

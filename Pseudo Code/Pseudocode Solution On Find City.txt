@@ -1,0 +1,131 @@
+
+
+
+
+/************************************************************************************************************************************
+ * File                 		 : Employee.txt
+ * Author Name         	 : Narendra G
+ * Desc                 		 : Program to calculate State Of the City
+ * Version              		 : 1.0
+ * Last Modified Date   	 : 27-Jan-2017
+ * Change Description   	 : Description about the changes implemented ************************************************************************************************************************************/
+/************************************************************************************************************************************
+	Creating Employee Record To store empId, empName, empSalary, empLocation
+************************************************************************************************************************************/
+RECORD Employee
+	DECLARE empId AS INTEGER
+	DECLARE empName AS STRING
+	DECLARE empSalary AS REAL
+	DECLARE empLocation AS STRING
+END RECORD
+
+BEGIN
+	DECLARE emp AS Employee
+	DECLARE empState AS STRING
+	PROMPT "Enter Employee ID " AND STORE IN emp.empId
+	PROMPT "Enter Employee Name " AND STORE IN emp.empName
+	PROMPT "Enter Employee Salary " AND STORE IN emp.empSalary
+	PROMPT "Enter Employee Location " AND STORE IN emp.empLocation
+
+	IF isValid(emp.empId) THEN
+		IF checkEmpId(emp.empId) THEN	
+			IF isValid(emp.empSalary) THEN
+				empState = findState(emp.empLocation)
+			ELSE
+				PRINT "Employee Salary should contain only digits"
+			END IF
+		END IF
+	ELSE
+		PRINT "Employee Id should contain only digits" 
+	END IF
+	
+	IF empState != "Invalid location"	
+		PRINT "Employee ID is "+emp.empId + " Name is "+emp.empName +" Salary is "+emp.empSalary+" Location is 			"+emp.empLocation+" State is "+empState
+	ELSE
+		PRINT "No such location exist"
+	END IF
+	/*
+	EXCEPTION
+		WHEN NoSuchEmployeeId THEN
+			PRINT errorMessage	
+	*/
+END
+
+/*********************************************************************
+* Module Name         	: checkEmpId()
+* Input Parameters    	: empId
+* Return Type         		: BOOLEAN
+* Author              		: Narendra G
+* Creation Date       		: 27-Jan-2017
+* Description         		: Checking empId already exist or not
+ *********************************************************************/
+
+SUB checkEmpId(empId)
+	IF elementFound(empId)	THEN
+		RETURN true		
+	ELSE
+		RAISE NoSuchEmployeeId("Employee Id does not exist")
+	END IF
+
+	EXCEPTION
+		WHEN NoSuchEmployeeId THEN
+		PRINT errorMessage			
+END SUB
+
+/*********************************************************************
+* Module Name         	: isValid()
+* Input Parameters    	: input
+* Return Type         		: BOOLEAN
+* Author              		: Narendra G
+* Creation Date       		: 27-Jan-2017
+* Description         		: Checking for Valid empId Or empSalary
+ *********************************************************************/
+SUB isValid(input)
+	IF isDigit(input) THEN
+		RETURN true
+	ELSE
+		RETURN false
+	END IF
+END SUB
+
+/*********************************************************************
+* Module Name         	: findState()
+* Input Parameters    	: location
+* Return Type         		: STRING
+* Author              		: Narendra G
+* Creation Date       		: 27-Jan-2017
+* Description         		: Checking for Valid empId Or empSalary
+ *********************************************************************/
+SUB findState(location)
+	DECLARE state AS STRING
+	IF checkLocation(location) THEN
+		IF location == "Mumbai" or location == "Pune"   THEN
+			state = "MAHARASHTRA" 
+		ELSE IF location == "Chennai"   THEN
+			state = "TAMILNADU" 
+		ELSE IF location == "Bangalore"   THEN
+			state = "KARNATAKA" 
+		END IF
+		RETURN state
+	ELSE
+		RETURN "Invalid location"
+	END IF	
+END SUB
+
+/*********************************************************************
+* Module Name         	: checkLocation()
+* Input Parameters    	: location
+* Return Type         		: BOOLEAN
+* Author              		: Narendra G
+* Creation Date       		: 27-Jan-2017
+* Description         		: Checking for valid location
+ *********************************************************************/
+SUB checkLocation(location)
+	DECLARE status AS BOOLEAN	
+	IF location == "Mumbai" or location == "Pune"  or location == "Chennai" or location == "Bangalore"   THEN
+		status = true
+	ELSE
+		status = false
+	END IF
+		RETURN status
+END SUB

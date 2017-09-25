@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:attribute name="id">
+		<xs:simpleType>
+			<xs:restriction base="xs:positiveInteger">
+				<xs:minInclusive value="101"/>
+				<xs:maxInclusive value="110"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+
+	<xs:element name="Designation">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Tester"/>
+				<xs:enumeration value="Designer"/>
+				<xs:enumeration value="Programmer"/>
+			</xs:restriction>	
+		</xs:simpleType>
+	</xs:element>
+
+<!--	<xs:element name="Name">			
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[A-Za-z]{8,10}"/>
+			</xs:restriction>	
+		</xs:simpleType>
+	</xs:element>				-->
+		
+		<xs:simpleType name="NameType">
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[A-Za-z]{3,10}"/>
+			</xs:restriction>	
+		</xs:simpleType>
+
+	<xs:element name="Gender"> 
+		<xs:simpleType> 
+			<xs:restriction base="xs:string"> 							
+			<xs:pattern value="Male|Female"/> 		
+			</xs:restriction> 
+		</xs:simpleType> 
+	</xs:element>
+
+	<xs:element name="Employee">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element name="Name" type="NameType" />
+			<xs:element ref="Gender" />
+			<xs:element name="DName" type="NameType"/>
+			<xs:element ref="Designation" />
+			<xs:element name="Salary" type="xs:string"/>
+			</xs:sequence>
+		<xs:attribute ref="id" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="EmployeeInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Employee" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

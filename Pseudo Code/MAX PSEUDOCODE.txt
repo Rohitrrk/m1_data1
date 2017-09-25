@@ -1,0 +1,18 @@
+/* Pseudo code to find greatest number among two numbers */
+
+BEGIN
+	DECLARE 
+		num1 AS INTEGER
+		num2 AS INTEGER
+	
+	PROMPT ' Enter num1 ' AND STORE IN num1
+	PROMPT ' Enter num2 ' AND STORE IN num2
+
+	IF num1 == num2 THEN
+		PRINT ' Both are equal '
+	ELSE IF num1 > num2 THEN 
+		PRINT 'num1 is greater than num2 '
+	ELSE 
+		PRINT ' num2 is greater than num1 '
+	END IF
+END

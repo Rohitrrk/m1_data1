@@ -1,0 +1,48 @@
+<?xml version="1.0"?>                         <!--Procedure Instruction-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> <!--Name Space-->
+  <xs:element name="EmployeeInfo">   <!--Parent Class with name EmployeeInfo-->
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Employee" type="EmployeeType" minOccurs="0" maxOccurs="unbounded"/> <!--Child of EmployeeInfo and Parent of Below-->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ 
+<xs:complexType name="EmployeeType"> <!--Starting of Complex type with name EmployeeType -->       
+    <xs:sequence>
+           <xs:element name="EmpID" type="IDSimpleType"/>   <!--Child Element-->
+           <xs:element name="EmpName" type="NameSimpleType"/>  <!--Child Element-->
+           <xs:element name="Emp_Address" type="Category"/>    <!--Child Element-->
+          <xs:element name="Emp_DOJ" type="xs:date"/>    <!--Child Element-->
+          <xs:element name="Emp_Designation" type="xs:string"/> <!--Child Element-->
+          <xs:element name="Emp_Level" type="LevelSimpleType"/>  <!--Child Element-->
+    </xs:sequence>
+  </xs:complexType>  <!--End of Complex type with name EmployeeType-->
+  <!--Restriction for Employee ID-->
+<xs:simpleType name="IDSimpleType">     <!--Restriction for Integer Types of pattern 0-9 with max lenght 6-->
+   <xs:restriction base="xs:integer">
+          <xs:pattern value="[0-9]{6}"/>
+   </xs:restriction>
+</xs:simpleType>
+  <!--Restriction for Employee Name-->
+  <xs:simpleType name="NameSimpleType">    <!--Restriction for String Types of max lenghth 15-->
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="15"/>
+    </xs:restriction>
+  </xs:simpleType>
+ <!--Restriction for Employee_Address-->
+<xs:simpleType name="Category">            <!--Restriction for String to select below values-->
+    <xs:restriction base="xs:string">
+          <xs:enumeration value="Hyderabad"/>
+          <xs:enumeration value="Pune"/>
+          <xs:enumeration value="Mumbai"/>
+          <xs:enumeration value="Chennai"/>
+   </xs:restriction>
+</xs:simpleType>
+  <!--Restriction for Employee Level-->
+<xs:simpleType name="LevelSimpleType">   <!--Restriction for Integer Types of pattern 0-9 with max lenght 1-->
+   <xs:restriction base="xs:integer">
+          <xs:pattern value="[0-9]{1}"/>
+   </xs:restriction>
+</xs:simpleType>
+</xs:schema>

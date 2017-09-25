@@ -1,0 +1,10 @@
+//Program to calculate number of days and number of month in a year.
+BEGIN
+	DECLARE month, day,totaldays AS INTEGERS
+	INITIALIZE totaldays TO 365
+	CALCULATE month = totaldays / 30 
+	CALCULATE day = totaldays % 30 
+	PRINT "No.of months " + month 
+	PRINT "No.of days + day
+END
+	

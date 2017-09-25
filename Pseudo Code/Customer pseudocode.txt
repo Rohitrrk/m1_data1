@@ -1,0 +1,18 @@
+/* Pseudo code to find total price */
+
+RECORD Customer
+	DECLARE
+		id AS INTEGER
+		name AS STRING
+		pname AS STRING
+		qty AS INTEGER
+		price AS INTEGER
+END RECORD
+
+
+BEGIN
+	DECLARE 
+		custObj AS Customer 
+ 
+	PROMPT ' Enter ID ' AND STORE IN custObj.id
+END

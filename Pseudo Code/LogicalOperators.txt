@@ -1,0 +1,12 @@
+// Program to find largest number 
+BEGIN
+	DECLARE num1,num2, num3 AS INTEGER
+	PROMPT "Enter 3 numbers" AND STORE IN num1,num2,num3;
+	IF(num1>=num2 && num1>=num3) THEN
+		PRINT "Largest Number "+num1
+	ELSEIF(num2>=num1 && num2>=num3)
+		PRINT "Largest Number "+num2
+	ELSE
+		PRINT "Largest Number "+num3
+	END IF
+END

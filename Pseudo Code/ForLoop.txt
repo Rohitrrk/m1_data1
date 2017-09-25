@@ -1,0 +1,9 @@
+//Program to find the sum of first n natural numbers where n is entered by user. 
+BEGIN
+	DECLARE num,count,sum AS INTEGER
+	PROMPT "Enter the value of n" AND STORE IN num
+	FOR COUNT = 1 TO num
+		sum+=count;
+	END FOR
+	PRINT "Sum is " + sum
+END

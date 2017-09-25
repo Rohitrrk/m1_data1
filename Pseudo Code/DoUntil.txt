@@ -1,0 +1,13 @@
+//Program to print required power of given number
+
+BEGIN
+	DECLARE pow,num,result,count AS INTEGER
+	INITIALIZE num TO 1
+	INITIALIZE count TO 1
+	PROMPT "Enter the number and its power" AND STORE IN num, pow
+	DO
+		calculate result*=num
+		count++;
+	UNTIL (count <= pow)
+	PRINT "Number "+ num + "to power "+pow+ "is= "+result
+END

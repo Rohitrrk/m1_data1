@@ -1,0 +1,23 @@
+<EmployeeInfo>
+	<Employee id="101">
+		<Name>Vaishali</Name>
+		<Gender>Female</Gender>
+		<DName>Marketing</DName>
+		<Designation>Programmer</Designation>
+		<Salary>22000</Salary>
+	</Employee>
+	<Employee id="102">
+		<Name>Anusha</Name>
+		<Gender>Female</Gender>
+		<DName>Sales</DName>
+		<Designation>Programmer</Designation>
+		<Salary>22000</Salary>
+	</Employee>
+	<Employee id="103">
+		<Name>Harish</Name>
+		<Gender>Male</Gender>
+		<DName>Marketing</DName>
+		<Designation>Tester</Designation>
+		<Salary>20000</Salary>
+	</Employee>	
+</EmployeeInfo>

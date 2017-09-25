@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<referrals 
+xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+xs:noNamespaceSchemaLocation="Referral.xsd">
+	<referral no="E5000">
+		<name>Praveen</name>
+		<address>Chennai</address>
+		<phonenumber>9897969594</phonenumber>
+		<degree>Bsc</degree>
+		<empno>104</empno>
+	</referral>
+</referrals>

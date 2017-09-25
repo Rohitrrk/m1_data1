@@ -1,0 +1,11 @@
+//Program to find whether a given number is zero or positive or negative
+BEGIN
+	DECLARE value AS INTEGER
+	IF ( value == 0 )THEN
+		PRINT "The value you entered was zero."
+	ELSE IF ( value < 0 ) THEN
+		PRINT  "The value is negative."
+	ELSE
+		PRINT  "The value is positive."		
+	END IF
+END

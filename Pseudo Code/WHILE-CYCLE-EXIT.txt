@@ -1,0 +1,18 @@
+//Program to accept a number and find whether the given number is odd or even repeatedly
+BEGIN
+       WHILE(TRUE)
+             PRINT "Enter a NUMBER"
+             ACCEPT num
+             IF (REMAINDER of num/2 = 0) THEN
+                           PRINT "Number is EVEN"
+             ELSE
+                           PRINT "Number is ODD“
+             END IF
+	     PRINT "Do you want to continue?[Y/N]"
+             ACCEPT choice
+             IF(choice='Y') THEN
+			cycle
+             ELSE  
+			exit 
+        END WHILE 
+END

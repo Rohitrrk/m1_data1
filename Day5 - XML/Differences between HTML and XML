@@ -1,0 +1,8 @@
+HTML					XML
+.css					.xsl
+focus on data and presentation		main focus only on data
+It is lang for developing static pages		It is neutral lang, useful for configuration and data 					exchange across networks
+HTML doesn't check for errors		XML does self validations
+Predefined tags				User defined tags
+Here it is optional				XML must have root element
+HTML is case insenstive			XML is case sensitive

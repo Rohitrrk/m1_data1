@@ -1,0 +1,7 @@
+//Program to compare two numbers
+BEGIN
+	DECLARE number1, number2 AS INTEGER
+	PROMPT "Enter number" AND STORE IN number1
+	number2 = (number1>5 ? 3 : 4)
+	PRINT number2
+END

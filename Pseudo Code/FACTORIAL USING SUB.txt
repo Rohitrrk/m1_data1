@@ -1,0 +1,24 @@
+//Program to print required power of given number
+
+BEGIN
+	DECLARE num AS INTEGER
+	DECLARE result AS INTEGER
+	PROMPT "Enter the number " AND STORE IN num
+
+	result = calculateFact(num)
+	PRINT "Factorial of "+num+ " is "+result	
+END
+
+// Module - calculateFact(num)
+
+SUB calculateFact(num)
+	DECLARE f AS INTEGER
+	INITIALIZE f TO 1
+
+	FOR I = 1 TO num
+	 	f = f * i
+	END FOR
+
+	RETURN f
+END SUB
+

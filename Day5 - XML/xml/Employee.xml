@@ -1,0 +1,25 @@
+<?xml version="1.0"?>	<!--Pre Processing Instruction -->
+<EmployeeInfo>			<!-- Root Element -->
+	<!-- Child Element and id is called as attribute -->
+	<Employee id="E101">	
+			<Name>Ravina</Name>
+			<Designation>Programmer</Designation>
+			<Salary>25000</Salary>
+	</Employee>
+	<Employee id="102">
+			<Name>Laxmi</Name>
+			<Designation>Tester</Designation>
+			<Salary>23000</Salary>
+	</Employee>
+	<Employee id="103">
+			<Name>Shalu</Name>
+			<Designation>Programmer</Designation>
+			<Salary>25000</Salary>
+	</Employee>
+	<Employee id="104">
+			<Name>Jyothi</Name>
+			<Designation>Analyst</Designation>
+			<Salary>22000</Salary>
+	</Employee>
+
+</EmployeeInfo>
