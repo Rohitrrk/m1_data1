@@ -1,0 +1,44 @@
+CREATE PROCEDURE update_product_price(p_product_id IN products.product_id%TYPE,p_factor     IN NUMBER ) 
+AS  
+v_product_count INTEGER; 
+BEGIN  
+-- count the number of products with the  
+-- supplied product_id (will be 1 if the product exists)  
+SELECT COUNT(*)  INTO v_product_count  
+FROM products  
+WHERE product_id = p_product_id;  
+
+-- if the product exists (v_product_count = 1) then  
+-- update that product's price  
+
+IF v_product_count = 1 THEN    
+	UPDATE products    
+	SET price = price * p_factor    
+	WHERE product_id = p_product_id;    
+	COMMIT;  
+END IF; 
+EXCEPTION  
+	WHEN OTHERS THEN    
+	ROLLBACK; 
+END update_product_price; 
+/
+
+-- Calling procedure
+-- Before
+SELECT price FROM products WHERE product_id = 1;
+-- After
+CALL update_product_price(1, 1.5); 
+-- named notation
+CALL update_product_price(p_factor => 1.3, p_product_id => 2); 
+-- mixed notation
+CALL update_product_price(3, p_factor => 1.7);
+
+SELECT price FROM products WHERE product_id = 1; 
+
+-- Getting the info about procedure
+SELECT object_name FROM user_procedures WHERE object_name = 'UPDATE_PRODUCT_PRICE'; 
+
+-- Drop procedure
+DROP PROCEDURE update_product_price;
+
+Show Errors

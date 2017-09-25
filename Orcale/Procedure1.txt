@@ -1,0 +1,39 @@
+--Simple Procedure
+create or replace procedure GetEID100
+is 
+emp_record employees%rowtype;
+begin
+select * into emp_record 
+from employees
+where employee_id=100;
+dbms_output.put_line('Employee ID | First Name | Last Name');
+dbms_output.put_line('----------------------------------------------');
+dbms_output.put_line(emp_record.employee_id ||' | '|| emp_record.First_Name ||' | '|| emp_record.Last_Name);
+end;
+
+-- Call the procedure
+begin
+GETEID100;
+end
+---------------------------------------------
+-- Parameterized procedure
+
+create or replace procedure GetEID
+(empid number)
+is 
+emp_record employees%rowtype;
+begin
+select * into emp_record 
+from employees
+where employee_id=empid;
+dbms_output.put_line('Employee ID | First Name | Last Name');
+dbms_output.put_line('----------------------------------------------');
+dbms_output.put_line(emp_record.employee_id ||' | '|| emp_record.First_Name ||' | '|| emp_record.Last_Name);
+end;
+
+-- Call the procedure
+begin
+GETEID(102);
+end
+
+

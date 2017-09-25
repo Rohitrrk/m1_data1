@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add Employee..</title>
+		<style>
+			table{	
+				font-family:'Segoe UI';
+				border: 3px solid black	;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+		<table align="center" width="400px">
+			<tr>
+				<th colspan="2">Employee Referral Form..</th>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<th>First Name : </th>
+				<td>
+	<input type="text" name="txtFName" id="txtFName" maxlength="50"
+			size="30"  placeholder="First Name" required readonly
+			pattern="[a-zA-Z]{3,50}"/>
+				</td>
+			</tr>
+			<tr>
+				<th>Last Name : </th>
+				<td>
+	<input type="text" name="txtLName" id="txtLName" maxlength="50"
+			size="30"  placeholder="Last Name" required disabled
+			pattern="[a-zA-Z]{3,50}"/>
+				</td>
+			</tr>
+			<tr>
+				<th>Contact Number : </th>
+				<td>
+	<input type="text" name="txtCNumber" id="txtCNumber" maxlength="10"
+			size="30"  placeholder="Contact Number" required
+			pattern="[0-9]{10,10}"/>
+				</td>
+			</tr>
+			<tr>
+				<th>Mobile Number : </th>
+				<td>
+	<input type="int" name="txtMNumber" id="txtMNumber" maxlength="10"
+			size="30" pattern="[0-9]{10}"  placeholder="Mobile Number" required
+			minlength="10" />
+				</td>
+			</tr>
+			<tr>
+				<th>Email Address : </th>
+				<td>
+	<input type="email" name="txtEmail" id="txtEmail" maxlength="40"
+			size="30"  placeholder="Email Address" required />
+				</td>
+			</tr>
+			<tr>
+				<th>Date Of Birth : </th>
+				<td>
+	<input type="date" name="txtDOB" id="txtDOB" 
+			size="30" max="1995-05-27"/>
+				</td>
+			</tr>
+			<tr>
+				<th>Current City/Location : </th>
+				<td>
+					<select name="ddlCity" id="ddlCity" style="width:150px">
+						<option value="Tamil Nadu">Chennai</option>
+						<option value="Karnataka">Bangalore</option>
+						<option value="Maharashtra">Mumbai</option>
+						<option value="Maharashtra">Pune</option>
+					</select>
+				</td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<th colspan="2"> <input type="submit" value="Submit"/></th>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>

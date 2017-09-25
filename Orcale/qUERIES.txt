@@ -1,0 +1,61 @@
+INSERT INTO PRODUCT_TYPES VALUES(1,'Book');
+INSERT INTO PRODUCT_TYPES VALUES(2,'Video');
+INSERT INTO PRODUCT_TYPES VALUES(3,'DVD');
+INSERT INTO PRODUCT_TYPES VALUES(4,'CD');
+INSERT INTO PRODUCT_TYPES VALUES(5,'Magazine');
+
+SELECT * FROM PRODUCT_TYPES;
+
+INSERT INTO PRODUCTS VALUES(1,1,'Modern Science','A description of modern science',19.95);
+INSERT INTO PRODUCTS VALUES(2,1,'Chemistry','Introduction to Chemistry',30);
+INSERT INTO PRODUCTS VALUES(3,2,'Super Nova','A star of explodes',25.99);
+INSERT INTO PRODUCTS VALUES(4,2,'Tank War','Action movie about future war',13.95);
+
+SELECT * FROM PRODUCTS;
+
+CREATE TABLE purchases
+  (
+    product_id  INTEGER CONSTRAINT purchases_fk_products  REFERENCES products(product_id),
+    customer_id INTEGER CONSTRAINT purchases_fk_customers REFERENCES customers(customer_id),
+    quantity    INTEGER NOT NULL,
+    CONSTRAINT purchases_pk PRIMARY KEY (product_id, customer_id)
+  );
+  
+  INSERT INTO PURCHASES VALUES(1,1,1);
+  INSERT INTO PURCHASES VALUES(&PID,&CID,&QTY);
+  INSERT INTO PURCHASES VALUES(2,2,1);
+  INSERT INTO PURCHASES VALUES(1,3,1);
+
+SELECT * FROM PURCHASES;
+
+CREATE TABLE employees
+  (
+    employee_id INTEGER CONSTRAINT employees_pk PRIMARY KEY,
+    manager_id  INTEGER,
+    first_name  VARCHAR2(10) NOT NULL,
+    last_name   VARCHAR2(10) NOT NULL,
+    title       VARCHAR2(20),
+    salary      NUMBER(6, 0)
+  );
+  
+  INSERT INTO EMPLOYEES VALUES(1,NULL,'James','Smith','CEO',800000);
+  
+CREATE TABLE salary_grades
+  (
+    salary_grade_id INTEGER CONSTRAINT salary_grade_pk PRIMARY KEY,
+    low_salary      NUMBER(6, 0),
+    high_salary     NUMBER(6, 0)
+  );
+
+INSERT INTO SALARY_GRADES VALUES(1,1,250000);
+DESC CUSTOMERS;
+SELECT * FROM SALARY_GRADES;
+DELETE FROM SALARY_GRADES WHERE SALARY_GRADE_ID = 1;
+ROLLBACK;
+
+INSERT INTO products (  product_id, product_type_id, name, description, price ) VALUES (  13, 1, 'The "Great" Gatsby', NULL, 12.99 ); 
+SELECT * FROM CUSTOMERS
+INSERT INTO customers VALUES (9, 'Kyle', 'O''Malley', NULL, NULL);
+
+UPDATE customers SET first_name = 'Edward' WHERE customer_id = 1; 
+ROLLBACK;

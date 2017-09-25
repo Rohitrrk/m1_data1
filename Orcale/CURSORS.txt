@@ -1,0 +1,192 @@
+-- SQL%ROWCOUNT - IMPLICIT CURSOR
+BEGIN
+  	UPDATE emp SET salary=salary+100;
+  	DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT||' RECORDS UPDATED');
+END;
+
+-- EXPLICIT CURSOR
+DECLARE
+      CURSOR cName IS SELECT * FROM student;
+      studDetail student%ROWTYPE;
+BEGIN
+   	OPEN cName; -- Opening a cursor
+   	FETCH cName INTO studDetail;
+   	CLOSE cName; --Closing cursor
+   	DBMS_OUTPUT.PUT_LINE(studDetail.name);
+END;
+
+-- CURSOR WITH LOOP 
+DECLARE
+      CURSOR cName IS SELECT * FROM student;
+      studDetail student%ROWTYPE;
+BEGIN
+ 	IF cname%ISOPEN
+  	THEN
+   		null;
+  	ELSE
+   		OPEN cname;
+   	END IF;
+   	FETCH cname INTO studDetail;
+   	LOOP
+   		FETCH cname INTO studDetail;
+   		EXIT WHEN cname%NOTFOUND;
+   		DBMS_OUTPUT.PUT_LINE(studDetail.name);
+   	END LOOP;
+END;
+
+-- OR
+
+DECLARE
+      CURSOR cName IS SELECT * FROM student;
+      studDetail student%ROWTYPE;
+BEGIN
+ 	IF cname%ISOPEN
+  	THEN
+   		null;
+  	ELSE
+   		OPEN cname;
+   	END IF;
+   	FETCH cname INTO studDetail;
+   	LOOP
+   		DBMS_OUTPUT.PUT_LINE(studDetail.name);
+   		FETCH cname INTO studDetail;
+   		EXIT WHEN cname%NOTFOUND;
+   	END LOOP;
+	CLOSE cname;
+END;
+
+-- CURSOR WITH WHILE LOOP
+DECLARE
+      CURSOR cName IS SELECT * FROM student;
+      studDetail student%ROWTYPE;
+BEGIN
+ 	IF cname%ISOPEN
+  	THEN
+   		null;
+  	ELSE
+   		OPEN cname;
+   	END IF;
+   	FETCH cname INTO studDetail;
+	WHILE cname%FOUND
+   	LOOP
+   		DBMS_OUTPUT.PUT_LINE(studDetail.name);
+   		FETCH cname INTO studDetail;
+   	END LOOP;
+	CLOSE cname;
+END;
+
+-- CURSOR WITH ROWCOUNT
+DECLARE
+      CURSOR cName IS SELECT * FROM student WHERE sid=&id;
+      studDetail student%ROWTYPE;
+BEGIN
+ 	IF cname%ISOPEN
+  	THEN
+   		null;
+  	ELSE
+   		OPEN cname;
+   	END IF;
+   	FETCH cname INTO studDetail;
+	IF cname%ROWCOUNT>0 THEN
+		WHILE cname%FOUND
+   		LOOP
+   			DBMS_OUTPUT.PUT_LINE(studDetail.name);
+   			FETCH cname INTO studDetail;
+	   	END LOOP;
+		CLOSE cname;
+	ELSE
+   		DBMS_OUTPUT.PUT_LINE('Student id does not exist');
+   	END IF;
+END;
+
+-- cursor WITH FOR LOOP
+DECLARE
+    	CURSOR cname IS SELECT * FROM student;
+BEGIN
+ 	FOR rec IN cname
+  	LOOP
+  		DBMS_OUTPUT.PUT_LINE(rec.name);
+  	END LOOP;
+END;
+
+-- cursor WITH FOR LOOP with JOINS
+DECLARE
+    CURSOR cname IS SELECT name,cname FROM student s, course c where s.cid=c.cid ;
+BEGIN
+ 	FOR rec IN cname
+  	LOOP
+  		DBMS_OUTPUT.PUT_LINE('student name is '||rec.name);
+  		DBMS_OUTPUT.PUT_LINE('course name is '||rec.cname);
+  	END LOOP;
+END;
+
+-- cursor WITH parameter
+DECLARE
+ 	num NUMBER;
+ 	CURSOR cname(no NUMBER) IS SELECT name FROM student WHERE cid=no;
+BEGIN
+ 	num:=&cid;
+ 	DBMS_OUTPUT.PUT_LINE('List of students who are attending in course id '||num);
+	FOR rec IN cname(num)
+	LOOP
+ 		DBMS_OUTPUT.PUT_LINE(rec.name);
+ 	END LOOP;
+END;
+
+-- REF CURSOR
+
+ DECLARE
+  	TYPE details IS REF CURSOR;
+  	stud student%ROWTYPE;
+  	cours course%ROWTYPE;
+  	cname details;
+ BEGIN
+  	OPEN cname FOR SELECT * FROM student;
+  	FETCH cname INTO stud;
+  	LOOP
+  		DBMS_OUTPUT.PUT_LINE(stud.name);
+  		EXIT WHEN cname%NOTFOUND;
+  		FETCH cname INTO stud;
+  	END LOOP;
+  	CLOSE cname;
+  	OPEN cname FOR SELECT * FROM course;
+  	FETCH cname INTO cours;
+  	LOOP
+  		DBMS_OUTPUT.PUT_LINE(cours.cname);
+  		EXIT WHEN cname%NOTFOUND;
+  		FETCH cname INTO cours;
+  	END LOOP;
+  	CLOSE cname;
+END;
+
+-- REF CURSOR - return
+DECLARE
+  	TYPE details IS REF CURSOR RETURN student%rowtype;
+  	stud student%ROWTYPE;
+  	cname details;
+  BEGIN
+  	OPEN cname FOR SELECT * FROM student WHERE cid=101;
+  	FETCH cname INTO emp;
+  	LOOP
+  		DBMS_OUTPUT.PUT_LINE(stud.name);
+  		EXIT WHEN cname%NOTFOUND;
+  		FETCH cname INTO stud;
+  	END LOOP;
+  	CLOSE cname;
+  	OPEN cname FOR SELECT * FROM student WHERE cid=102;
+  	FETCH cname INTO stud;
+  	LOOP
+  		DBMS_OUTPUT.PUT_LINE(stud.name);
+  		EXIT WHEN cname%NOTFOUND;
+  		FETCH cname INTO stud;
+  	END LOOP;
+  	CLOSE cname;
+END;
+
+
+
+
+
+
+
+

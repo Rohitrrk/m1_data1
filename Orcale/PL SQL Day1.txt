@@ -1,0 +1,309 @@
+SET SERVEROUTPUT ON
+-- EG1
+BEGIN
+  	DBMS_OUTPUT.PUT_LINE('WelcomeTO PLSQL');
+END;
+
+-- EG 2
+BEGIN
+	DBMS_OUTPUT.PUT_LINE('Welcome'||' to PL/SQL session');
+END;
+
+-- EG 3
+DECLARE
+    	num NUMBER:=20;
+BEGIN
+	num:=25;
+  	DBMS_OUTPUT.PUT_LINE('Result is '||num);
+END;
+-- EG 4
+DECLARE
+   	num NUMBER:=20;
+    	doj DATE DEFAULT SYSDATE;
+ BEGIN
+   	--num:=25;
+  	DBMS_OUTPUT.PUT_LINE('Result is '||num);
+  	DBMS_OUTPUT.PUT_LINE('Result is '||doj);
+ END;
+
+-- EG 5
+DECLARE
+  	--vcName VARCHAR2(20) NOT NULL:='Test';
+	vcName VARCHAR2(20) NOT NULL DEFAULT 'Example'
+   	id NUMBER:=10;
+  BEGIN
+   	DBMS_OUTPUT.PUT_LINE(vcName||id);
+   END;
+
+-- CONSTANT EG
+DECLARE
+	pi CONSTANT NUMBER:=3.142;  	
+	--pi CONSTANT NUMBER;  -- err not initialized
+   	radius NUMBER:=&Radius;
+  BEGIN
+	--pi:=3.14; --err twice initialization
+   	DBMS_OUTPUT.PUT_LINE('Area Of Circle '||pi*radius*radius);
+  END;
+
+-- INSERT IN PL/SQL
+    BEGIN
+  	INSERT INTO COURSE VALUES
+	(105,'C',3000,null);
+	DBMS_OUTPUT.PUT_LINE('Record is added');
+    END;
+
+    BEGIN
+  	INSERT INTO COURSE VALUES
+	(&Cid,'&Coursename',&fees,'&Startdate');
+	DBMS_OUTPUT.PUT_LINE('Record is added');
+    END;
+
+-- SELECT QUERY IN PL/SQL
+DECLARE 
+	id NUMBER:=&sid;
+	sname VARCHAR2(20);
+BEGIN
+	SELECT sid,name INTO id,sname
+	FROM Student
+	WHERE sid=id;
+	DBMS_OUTPUT.PUT_LINE('Student ID is '||id);
+	DBMS_OUTPUT.PUT_LINE('Student Name is '||sname);
+END	
+
+-- %TYPE Attribute
+DECLARE 
+	id Student.sid%TYPE:=&sid;
+	sname Student.name%TYPE;
+	cname sname%TYPE;	--
+BEGIN
+	SELECT sid,name INTO id,sname
+	FROM Student
+	WHERE sid=id;
+	DBMS_OUTPUT.PUT_LINE('Student ID is '||id);
+	DBMS_OUTPUT.PUT_LINE('Student Name is '||sname);
+END	
+
+-- %ROWTYPE Attribute
+DECLARE
+	id Student.sid%TYPE:=&sid;	
+    	studDetail student%ROWTYPE;
+BEGIN
+  	SELECT * INTO studDetail FROM student WHERE sid=id;
+  	DBMS_OUTPUT.PUT_LINE(studDetail.name);
+  	DBMS_OUTPUT.PUT_LINE(studDetail.gender);
+END;
+
+-- IF 
+DECLARE 
+	v_sid student.sid%TYPE;
+	
+BEGIN
+	SELECT sid INTO v_sid
+	FROM student
+	WHERE cid is null;
+
+	IF v_sid = 2 THEN
+		UPDATE 	student
+		SET cid=102
+		WHERE sid=2;
+		DBMS_OUTPUT.PUT_LINE('record updated');	
+	ELSE
+		DBMS_OUT.PUT_LINE('not found');
+	END IF;
+END;
+
+-- IF WITH UPDATE
+
+DECLARE
+  nSal NUMBER;
+  nMinSal NUMBER;
+BEGIN
+  SELECT salary INTO nSal FROM emp WHERE empno=1;
+  SELECT min(salary) INTO nMinSal FROM emp;
+  IF nSal<nMinSal THEN
+          UPDATE emp SET salary=salary*.2 WHERE empno=1;
+          DBMS_OUTPUT.PUT_LINE('RECORD UPDATED');
+  ELSE
+          DBMS_OUTPUT.PUT_LINE('UPDATE IS NOT REQUIRED');
+  END IF;
+END;
+-- IF WITH DAYS
+
+DECLARE
+  D VARCHAR2(3):= TO_CHAR(SYSDATE, 'DY');
+BEGIN
+  IF D= 'SAT' THEN
+    DBMS_OUTPUT.PUT_LINE('ENJOY YOUR WEEKEND');
+  ELSIF D= 'SUN' THEN
+    DBMS_OUTPUT.PUT_LINE('ENJOY YOUR WEEKEND');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('HAVE A NICE DAY');
+  END IF;
+END;
+
+-- SUBTYPE like %TYPE attribute
+
+DECLARE 
+	SUBTYPE vc IS VARCHAR2;
+	id Student.sid%TYPE:=&sid;
+	v_name vc(20);
+	v_gender vc(1);	
+BEGIN
+	SELECT name,gender INTO v_name,v_gender
+	FROM Student
+	WHERE sid=id;
+	DBMS_OUTPUT.PUT_LINE('Student Name is '||v_name);
+	DBMS_OUTPUT.PUT_LINE('Student Gender is '||v_gender);
+END	
+
+-- SUBTYPE like %ROWTYPE attribute
+
+DECLARE
+	id Student.sid%TYPE:=&sid;	
+	SUBTYPE studentD IS student%ROWTYPE;
+    	studDetail studentD;
+BEGIN
+  	SELECT * INTO studDetail FROM student WHERE sid=id;
+  	DBMS_OUTPUT.PUT_LINE(studDetail.name);
+  	DBMS_OUTPUT.PUT_LINE(studDetail.gender);
+END;
+
+-- TYPE IS TABLE
+
+DECLARE
+  TYPE EmpTable IS TABLE OF NUMBER INDEX BY BINARY_INTEGER;
+   Emp_tab EmpTable;
+BEGIN
+    Emp_tab(1):=200;
+    Emp_tab(2):=300;
+    DBMS_OUTPUT.PUT_LINE(Emp_tab(1) || '        '|| Emp_tab(2));
+END;
+
+-- LOOPS
+
+-- INFINITE LOOP
+BEGIN
+  LOOP
+  	DBMS_OUTPUT.PUT_LINE('test');
+  END LOOP;
+END;
+
+-- ONLY ONCE
+BEGIN
+ 	LOOP
+ 		DBMS_OUTPUT.PUT_LINE('test');
+ 		EXIT;
+  	END LOOP;
+END;
+
+-- EXIT WHEN nNum=5
+
+DECLARE
+    nNum NUMBER:=1;
+BEGIN
+	LOOP
+		DBMS_OUTPUT.PUT_LINE('test');
+ 		nNum:=nNum+1;
+	 	EXIT WHEN nNum=5;
+ 	END LOOP;
+END;
+
+-- OR
+DECLARE
+    nNum NUMBER:=1;
+BEGIN
+	LOOP
+	 	EXIT WHEN nNum>5;
+		DBMS_OUTPUT.PUT_LINE('test');
+	 	nNum:=nNum+1;
+ 	END LOOP;
+END;
+
+-- OR
+
+DECLARE
+    nNum NUMBER:=1;
+BEGIN
+	LOOP
+    		DBMS_OUTPUT.PUT_LINE('test');
+		nNum:=nNum+1;
+		EXIT WHEN nNum>5;
+ 	END LOOP;
+END;
+
+-- WHILE LOOP
+DECLARE
+    nNum NUMBER:=1;
+BEGIN
+  	WHILE nNUM<5
+  	LOOP
+    		DBMS_OUTPUT.PUT_LINE('test');
+  		nNum:=nNum+1;
+   	END LOOP;
+END;
+
+-- FOR LOOP
+BEGIN
+  	FOR index1 IN 1..5
+  	LOOP
+    		DBMS_OUTPUT.PUT_LINE('test');
+   	END LOOP;
+END;
+
+-- REVERSE LOOP
+BEGIN
+  	FOR index1 IN REVERSE 1..5
+  	LOOP
+    		DBMS_OUTPUT.PUT_LINE('test '||index1);
+   	END LOOP;
+END;
+
+-- SCOPE & VISIBILITY
+DECLARE
+    nNum NUMBER:=10;
+   BEGIN
+    	DBMS_OUTPUT.PUT_LINE('Outer Block');
+    	DBMS_OUTPUT.PUT_LINE(nNum);
+    	DECLARE
+    		nNum NUMBER:=20;
+    	BEGIN
+    	  DBMS_OUTPUT.PUT_LINE('Inner Block');
+    	  DBMS_OUTPUT.PUT_LINE(nNum);
+     	END;
+      DBMS_OUTPUT.PUT_LINE('Outer Block');
+    	DBMS_OUTPUT.PUT_LINE(nNum);
+   END;
+
+--<<OUTER>> <<INNER>>
+<<OUTER>>
+DECLARE
+    nNum NUMBER:=10;
+   BEGIN
+    	DBMS_OUTPUT.PUT_LINE('Outer Block');
+    	DBMS_OUTPUT.PUT_LINE(nNum);
+      <<INNER>>
+    	DECLARE
+    		nNum NUMBER:=20;
+    	BEGIN
+    	       DBMS_OUTPUT.PUT_LINE('Inner Block');
+    	       DBMS_OUTPUT.PUT_LINE(nNum);
+ 	       DBMS_OUTPUT.PUT_LINE(OUTER.nNum);
+                        DBMS_OUTPUT.PUT_LINE(INNER.nNum);
+     	END;
+      DBMS_OUTPUT.PUT_LINE('Outer Block');
+      DBMS_OUTPUT.PUT_LINE(nNum);
+   END;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

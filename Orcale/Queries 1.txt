@@ -1,0 +1,67 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Thu Sep 8 14:22:19 2016
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> connect system/krishna
+Connected.
+SQL> create user myuser identified by myuser;
+
+User created.
+
+SQL> connect myuser/myuser;
+ERROR:
+ORA-01045: user MYUSER lacks CREATE SESSION privilege; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> connect system/krishna
+Connected.
+SQL> grant connect to myuser;
+
+Grant succeeded.
+
+SQL> connect myuser/myuser;
+Connected.
+SQL> select * from tab;
+
+no rows selected
+
+SQL> create table Demo(srno int);
+create table Demo(srno int)
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> connect system/krishna
+Connected.
+SQL> grant resource to myuser;
+
+Grant succeeded.
+
+SQL> connect myuser/myuser;
+Connected.
+SQL> create table Demo(srno int);
+
+Table created.
+
+SQL> select * from Demo;
+
+no rows selected
+
+SQL> insert into Demo values(1);
+
+1 row created.
+
+SQL> select * from Demo;
+
+      SRNO
+----------
+         1
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
