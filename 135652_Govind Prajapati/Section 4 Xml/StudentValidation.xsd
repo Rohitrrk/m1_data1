@@ -1,0 +1,78 @@
+ <?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="StudentInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Student" type="StudentType" minOccurs = "0" maxOccurs="10" />
+			</xs:sequence>
+		</xs:complexType>
+</xs:element>
+
+<xs:complexType name="StudentType">
+		<xs:sequence>
+			<xs:element ref = "StudNo"/>
+			<xs:element ref = "StudName"/>
+			<xs:element ref = "PhoneNumber"/>
+			<xs:element ref = "Address"/>
+			<xs:element ref = "DeptNo"/>
+		</xs:sequence>
+</xs:complexType>
+
+<!-- StudNo must have 4 digit Id -->
+
+<xs:element name="StudNo">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value = "[0-9]{4}"/>
+			</xs:restriction>
+		</xs:simpleType>
+</xs:element>	
+
+
+<!-- StudName must have minimum 3 and maximum 10 length of alphabets -->
+
+<xs:element name="StudName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value = "[a-zA-Z]{3,10}" />
+			</xs:restriction>
+		</xs:simpleType>
+</xs:element>
+
+
+<!-- phoneNumber must ha     ve 7 digit  -->	
+
+<xs:element name="PhoneNumber">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value = "[0-9]{7}"/>
+			</xs:restriction>
+		</xs:simpleType>
+</xs:element>	
+
+
+<!-- Address must have minimum 3 and maximum 20 length of alphabets
+ -->
+ 
+ <xs:element name="Address">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value = "[a-zA-Z]{3,20}" />
+			</xs:restriction>
+		</xs:simpleType>
+</xs:element>
+
+
+<!-- DeptNo must have 10,20,30,40 others will not accepted-->
+<xs:element name="DeptNo">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:enumeration value="10"/>
+				<xs:enumeration value="20"/>
+				<xs:enumeration value="30"/>
+				<xs:enumeration value="40"/>
+			</xs:restriction>
+		</xs:simpleType>
+</xs:element>
+
+</xs:schema>

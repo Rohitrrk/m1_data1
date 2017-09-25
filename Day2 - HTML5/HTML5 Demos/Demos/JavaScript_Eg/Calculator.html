@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calculator using JavaScript..</title>
+    <script>
+        function Addition()
+        {
+            if (document.getElementById('txtN1').value == "" ||
+                document.getElementById('txtN2').value == "") {
+                alert('Plz Enter Value in Both The Boxes');
+            }
+            else {
+                var a = parseFloat(document.getElementById('txtN1').value);
+                var b = parseFloat(document.getElementById('txtN2').value);
+
+                document.getElementById('Result').innerHTML = 'Addition is ' + (a + b);
+            }
+        }
+    </script>
+</head>
+<body style="font-family:'Segoe UI';">
+    <form>
+        <table align="center" border="1" cellpadding="5">
+            <caption><h3>Fill your numbers..</h3></caption>
+            <tr>
+                <th>Number 1 : </th>
+                <td><input type="text" id="txtN1" /></td>
+            </tr>
+            <tr>
+                <th>Number 2 : </th>
+                <td><input type="text" id="txtN2" /></td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="button" value="Addition"
+                           onclick="Addition()"/>
+                </td>
+                <td>
+                    <input type="reset" value="Clear" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h3 id="Result"></h3>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

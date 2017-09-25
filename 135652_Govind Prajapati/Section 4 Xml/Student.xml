@@ -1,0 +1,77 @@
+<StudentInfo> <!-- ROOT ELEMENT -->
+
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1001</StudNo>
+		<StudName>Rahul</StudName>
+		<PhoneNumber>2456789</PhoneNumber>
+		<Address>Mumbai</Address>
+		<DeptNo>10</DeptNo>
+	</Student>
+	
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1002</StudNo>
+		<StudName>Sanjay</StudName>
+		<PhoneNumber>2678923</PhoneNumber>
+		<Address>Pune</Address>
+		<DeptNo>20</DeptNo>
+	</Student>
+	
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1003</StudNo>
+		<StudName>Ritish</StudName>
+		<PhoneNumber>2676763</PhoneNumber>
+		<Address>Mumbai</Address>
+		<DeptNo>30</DeptNo>
+	</Student>
+	
+	
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1004</StudNo>
+		<StudName>Sai</StudName>
+		<PhoneNumber>2565758</PhoneNumber>
+		<Address>Bangalore</Address>
+		<DeptNo>20</DeptNo>
+	</Student>
+	
+	
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1005</StudNo>
+		<StudName>Ravi</StudName>
+		<PhoneNumber>2787975</PhoneNumber>
+		<Address>Chennai</Address>
+		<DeptNo>20</DeptNo>
+	</Student>
+	
+	
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1006</StudNo>
+		<StudName>Kalai</StudName>
+		<PhoneNumber>2345678</PhoneNumber>
+		<Address>Chennai</Address>
+		<DeptNo>30</DeptNo>
+	</Student>
+	
+	
+	<Student> <!-- Child ELEMENT -->
+		
+		<!-- Grand Child Element -->
+		<StudNo>1007</StudNo>
+		<StudName>Sonal</StudName>
+		<PhoneNumber>2987654</PhoneNumber>
+		<Address>Mumbai</Address>
+		<DeptNo>20</DeptNo>
+	</Student>
+	
+</StudentInfo>

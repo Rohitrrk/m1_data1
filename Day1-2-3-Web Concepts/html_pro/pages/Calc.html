@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>Calculator..</title>
+		<style>
+			*{
+				font-family:Segoe UI;
+				font-size:20px;
+			}
+			h2{
+				text-align:center;
+			}
+			table{
+				border:5px solid red;
+			}
+		</style>
+		<!-- Internal JS -->
+		<script>
+			function Addition(a,b)
+			{
+				var res = parseFloat(a.value) + parseFloat(b.value);
+				//alert('Addition is '+res);
+document.getElementById("lblRes").innerText
+="<h1>Addition is "+res+"</h1>";
+			}
+			function checkMax(a,b)
+			{
+				var x = parseFloat(a.value);
+				var y = parseFloat(b.value);
+				if(x == y)
+					alert('Both are equal');
+				else if(x > y)
+					alert('First number is greater');
+				else
+					alert('Second number is greater');
+			}
+			function checkVowel(ch)
+			{
+				if(isNaN(ch.value))
+				{
+					switch((ch.value).toLowerCase())
+					{
+						// fallthrough
+						case "a":
+						case "e":
+						case "i":
+						case "o":
+						case "u":
+							alert("It is vowel");
+							break;
+						default:
+							alert("It is consonant");
+					}
+				}
+				else
+					alert('plz enter character');
+				
+			}
+			
+			console.log(parseInt("120.50"));
+			console.log(parseInt("120A.50"));
+			console.log(parseInt("A120.50"));
+			console.log(parseFloat("120.50"));
+			console.log(parseFloat("12B0.50"));
+			console.log(parseFloat("B120.50"));
+			
+			today = new Date(89987897979794);
+			now = String(today)
+			console.log(today);
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<h2>Calculator..</h2>
+		<!-- <form method="post" action="mydetails.html"> -->
+		<form>
+		<table align="center" cellpadding="5">
+			<tr>
+				<td> First Number : </td>
+				<td>
+					<input type="text" name="txtFN"
+					id="txtFN" placeholder="Number 1" />
+				</td>
+			</tr>
+				<tr>
+				<td> Second Number : </td>
+				<td>
+					<input type="text" name="txtSN"
+					id="txtSN" placeholder="Number 2" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- <input type="submit" value="Add" /> -->
+					<!-- Inline JS -->
+					<!-- <input type="button" value="Add"onclick="alert('HelloWorld')"/> -->
+					
+					<input type="button" value="Add"onclick="Addition(txtFN,txtSN)"/>
+					
+					<input type="button" value="Check Max"onclick="checkMax(txtFN,txtSN)"/>
+					
+					<input type="button" value="Check Vowel"onclick="checkVowel(txtFN)"/>
+				</td>
+				<td>
+					<input type="reset" value="Clear" />
+				</td>
+			</tr>
+		</table>
+		<p id="lblRes"></p>
+		</form>
+	</body>
+</html>

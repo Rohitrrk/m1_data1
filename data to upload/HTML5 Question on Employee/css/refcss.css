@@ -1,0 +1,15 @@
+.table1{
+	margin:0 auto;
+}
+.form1{
+	border:1px solid black;
+
+}
+.header{
+	height:50px;
+	border:1px solid white;
+	text-align:center;
+	 background-color:black;
+	font-size:10px;
+	color:white;
+	}

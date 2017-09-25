@@ -1,0 +1,11 @@
+
+SQL> SELECT m.studno,s.studname,d.deptno FROM Marks m JOIN Student s ON m.studno = s.studno JOIN Department d ON s.deptno = d.deptno where Module1 Is NULL OR Module2 Is NULL OR module3 Is NULL OR Module4 Is NULL;
+
+    STUDNO STUDNAME                 DEPTNO
+---------- -------------------- ----------
+      1004 Sai                          10
+
+SQL>
+
+
+

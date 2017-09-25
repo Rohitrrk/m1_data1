@@ -1,0 +1,32 @@
+
+SQL> SELECT * FROM Marks;
+
+    STUDNO    MODULE1    MODULE2    MODULE3    MODULE4
+---------- ---------- ---------- ---------- ----------
+      1001         75         60         90         85
+      1002         65         86         79         92
+      1003         54         46         72         67
+      1004         72         66                    89
+      1005         62         56         72         86
+      1006         80         50         70         30
+
+6 rows selected.
+
+SQL> Update Marks SET Module3 = 60 WHERE studno = 1004;
+
+1 row updated.
+
+SQL> SELECT * FROM Marks;
+
+    STUDNO    MODULE1    MODULE2    MODULE3    MODULE4
+---------- ---------- ---------- ---------- ----------
+      1001         75         60         90         85
+      1002         65         86         79         92
+      1003         54         46         72         67
+      1004         72         66         60         89
+      1005         62         56         72         86
+      1006         80         50         70         30
+
+6 rows selected.
+
+SQL>

@@ -1,0 +1,170 @@
+
+
+
+/*********************************************************************
+ * File                 		 : Bill.txt
+ * Author Name         	 : Capgemini
+ * Desc                 		: Program to calculate Bill Of Car Service
+ * Version              		: 1.0
+ * Last Modified Date   	: 27-Jan-2017
+ * Change Description   	: Description about the changes implemented
+ *********************************************************************/
+/*********************************************************************
+	Creating Bill Record To store Vechicle Type, Type OF Service, VehicleCost 
+ *********************************************************************/
+RECORD Bill
+	DECLARE serviceType AS STRING
+	DECLARE vehicleType AS STRING
+	DECLARE vehicleCost AS REAL
+END RECORD
+
+/*********************************************************************
+	Creating Bill Object and Calling Other Modules
+ *********************************************************************/
+
+BEGIN
+	DECLARE bill AS Bill
+	DECLARE totalCost AS REAL
+	PROMPT "Enter Service Type " AND STORE IN bill.serviceType
+	PROMPT "Enter Vehicle Type" AND STORE IN bill.vehicleType
+	PROMPT "Enter Vehicle Cost " AND STORE IN bill.vehicleCost
+	
+	IF isValidCost(bill.vehicleCost) THEN
+		totalCost = calculateBill(bill)
+	ELSE
+		PRINT 'Invalid Vehicle Cost'
+	END IF		
+	
+	PRINT "Bill Details"
+	PRINT "Service Type ", bill.serviceType
+	PRINT "Vehicle Type ", bill.vehicleType
+	PRINT "Vehicle Cost ", bill.vehicleCost
+	PRINT "Total Cost", totalCost
+
+	EXCEPTION
+		WHEN NoSuchServiceType THEN
+		PRINT errorMessage
+		
+		WHEN NoSuchVehicleType THEN
+		PRINT errorMessage
+	
+END	
+
+/*********************************************************************
+* Module Name         : isValidCost()
+* Input Parameters    : vehicleCost
+* Return Type         : BOOLEAN
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Checking for Valid vehiclecost
+ *********************************************************************/
+SUB isValidCost(vehicleCost)
+	IF isDigit(vehicleCost) THEN
+		RETURN true
+	ELSE
+		RETURN false
+	END IF
+END SUB
+
+/*********************************************************************
+* Module Name         : calculateBill()
+* Input Parameters    : bill 
+* Return Type         : REAL
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Calcuate Total Cost of the vehicle service
+ *********************************************************************/
+SUB calculateBill(bill)
+	DECLARE totalCost AS REAL
+	IF isValidServiceType(bill.serviceType) THEN
+		IF isValidVehicleType(bill.vehicleType) THEN
+			IF bill.serviceType == "F"
+				totalCost = 200
+			ELSE 
+				IF bill.vehicleType == "Sedan"
+				totalCost = calculateSedanCost(vehicleCost)
+				ELSE IF bill.vehicleType == "SmallCar"
+				totalCost = calculateSmallCarCost(vehicleCost)
+				ELSE
+				totalCost = calculateHatchBackCost(vehicleCost)		
+				END IF
+			END IF 
+		END IF			
+	END IF
+	RETURN totalCost
+END SUB
+
+/*********************************************************************
+* Module Name         : isValidServiceType()
+* Input Parameters    : serviceType
+* Return Type         : BOOLEAN
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Checking for Valid Service Type
+ *********************************************************************/
+SUB isValidServiceType(serviceType)
+	IF serviceType == "F" or serviceType == "BR" THEN
+		RETURN true
+	ELSE
+		RAISE NoSuchServiceType("Invalid Service Type ")					-- RETURN false
+	END IF
+END SUB
+
+/*********************************************************************
+* Module Name         : isValidVehicleType()
+* Input Parameters    : vehicleType
+* Return Type         : BOOLEAN
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Checking for Valid Vehicle Type
+ *********************************************************************/
+SUB isValidVehicleType(vehicleType)
+	IF vehicleType == "Sedan" or vehicleType == "HatchBack"
+		or vehicleType == "SmallCar" THEN
+		RETURN true
+	ELSE
+		RAISE NoSuchVehicleType("Invalid Service Type ")--RETURN false
+	END IF
+END SUB
+
+
+/*********************************************************************
+* Module Name         : calculateSedanCost(vehicleCost)
+* Input Parameters    : vehicleType
+* Return Type         : REAL
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Calculating Total Sedan Service Cost
+ *********************************************************************/
+SUB calculateSedanCost(vehicleCost)
+	RETURN 0.18 * vehicleCost 
+END SUB
+
+/*********************************************************************
+* Module Name         : calculateSmallCarCost(vehicleCost)
+* Input Parameters    : vehicleType
+* Return Type         : REAL
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Calculating Total SmallCar Service Cost
+ *********************************************************************/
+SUB calculateSmallCarCost(vehicleCost)
+	RETURN 0.1 * vehicleCost 
+END SUB
+
+/*********************************************************************
+* Module Name         : calculateHatchBackCost(vehicleCost)
+* Input Parameters    : vehicleType
+* Return Type         : REAL
+* Author              : Capgemini
+* Creation Date       : 27-Jan-2017
+* Description         : Calculating Total HatchBack Service Cost
+ *********************************************************************/
+SUB calculateHatchBackCost(vehicleCost)
+	RETURN 0.15 * vehicleCost 
+END SUB
+
+
+
+
+

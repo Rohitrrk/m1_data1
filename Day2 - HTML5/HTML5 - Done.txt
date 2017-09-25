@@ -1,0 +1,42 @@
+Standard Generalized Markup Language (SGML)
+Extensible Markup Language (XML)
+
+Hypertext Markup Language (HTML)
+Extensible Hypertext Markup Language (XHTML)
+
+Relationships :
+SGML
+XML is a simplified subset of SGML
+HTML is an application of SGML
+XHTML is an application of XML
+
+HTML is introduced by Tim Berners-lee, started thinking on html in 1980
+
+History of HTML
+
+HTML - Hypertext Markup Language in 1989
+
+WWW
+		WHATWG	- Team of Apple, Mozilla and Opera
+		(Web Hypertext Application Technology Working Group)
+Evolution 
+
+
+Official launch 2022
+
+Why HTML5?
+	1) Form API
+	2) Multimedia	
+	3) Offline WebApplications
+	4) Web Storage
+		a) Local
+		b) Session
+		c) websql(SQlite) , deprecated
+		d) IndexDB (NoSQL storage)
+	5) Caching
+	6) WebWorker
+	7) WebSockets	- alternative to http protocol
+		-real time communication
+		-light weight in request and response
+		-geo location
+	8) Semantic Element

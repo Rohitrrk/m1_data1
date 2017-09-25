@@ -1,0 +1,40 @@
+/*********************************************************************
+ * File                 		 : NumberDemo.txt
+ * Author Name         	 : Capgemini
+ * Desc                 		: Program to calculate Simple Interest
+ * Version              		: 1.0
+ * Last Modified Date   	: 25-Jan-2017
+ * Change Description   	: Description about the changes implemented
+ *********************************************************************/
+BEGIN
+	DECLARE principleAmt AS REAL
+	DECLARE rateOfInt AS REAL
+	DECLARE noOfYears AS INTEGER
+	DECLARE si AS REAL
+
+	PROMPT "Enter Principle Amt " AND STORE IN principleAmt
+	PROMPT "Enter Rate Of Interest " AND STORE IN rateOfInt
+	PROMPT "Enter No. Of Years " AND STORE IN noOfYears
+
+	si = calculateSI(principleAmt, rateOfInt, noOfYears)
+
+	PRINT "Simple Interest Is ", si
+END
+/*********************************************************************
+* Module Name         : calculateSI()
+* Input Parameters    : pa, roi, noy
+* Return Type         : REAL
+* Author              : Capgemini
+* Creation Date       : 25-Jan-2017
+* Description         : Calcuate si and return si
+ *********************************************************************/
+SUB calculateSI(pa, roi, noy)
+	DECLARE si as REAL
+	si = (pa * roi * noy) /100 
+	RETURN si
+END SUB
+
+
+
+
+

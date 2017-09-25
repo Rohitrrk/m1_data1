@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>Referral Form</TITLE>
+		<link rel="stylesheet" href="css/refcss.css">    
+		<script src="script/refscript.js"></script>
+	</HEAD>
+	<BODY>
+	<header class="header">
+			<h1>Employee Referral Form</h1>
+		</header>
+	<form class="form1">
+		<TABLE class="table1">
+			<TR>
+				<TD> First Name </TD>
+				<TD><INPUT TYPE="text" name="fname" ID="fname" pattern="[a-zA-Z]{3,30}" MAXLENGTH="30" required/></TD>
+				
+			</TR>
+			<TR>
+				<TD> Last Name </TD>
+				<TD><INPUT TYPE="text" ID="lname" pattern="[a-zA-Z]{3,30}" MAXLENGTH="30" required/></TD>
+				
+			</TR>
+			<TR>
+				<TD> Contact Number </TD>
+				<TD><INPUT TYPE="int" ID="contact" PATTERN="[0-9]{10}" minlength="10" MAXLENGTH="10" required/></TD>
+				
+			</TR>
+			<TR>
+				<TD> Email Address* </TD>
+				<TD><INPUT TYPE="email" ID="emailadd" required/></TD>
+				
+			</TR>
+			<TR>
+				<TD> Date of Birth </TD>
+				<TD><INPUT TYPE="date" ID="dob"  max="1995-05-27" required/></TD>
+			</TR>
+			<TR>
+				<TD> Current City/Location </TD>
+				<TD>
+					<SELECT ID="city" NAME="city">
+					<OPTION VALUE="TamilNadu">Chennai</OPTION>
+					<OPTION VALUE="Maharashtra">Mumbai</OPTION>
+					<OPTION VALUE="Maharashtra">Pune</OPTION>
+					<OPTION VALUE="Karnataka">Banglore</OPTION>
+					</SELECT>
+				</TD>
+				
+			</TR>
+			<TR>
+				<TH colspan="2">
+					<BUTTON Type="submit" ID="btnpreview" ONCLICK="preview(this.form)">Preview</BUTTON >
+					<BUTTON  Type="reset" ID="btnres">Clear</   BUTTON >
+				</TH>
+			</TR>
+		</TABLE>
+	</form>
+	</BODY>
+</HTML>

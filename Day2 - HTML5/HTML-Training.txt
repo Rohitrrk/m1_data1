@@ -1,0 +1,461 @@
+Structure
+	Headings		
+	Paragraphs	<p>
+	Bold		<b>Hello</b>
+	Italics		<i>Hello</i>
+	Strong		<strong>Hello</strong>
+	Emphasis		<em>Hello</strong>
+	Quotations	<q>Hello</q>  And  <blockquote>Hello</blockquote>
+	Subscript		H<sub>2</sub>O
+	Superscript	(a + b)<sup>2</sup>
+	Whitespace	
+	Line Breaks	Hello<br/>World
+	Abbreviations	<abbr title="Professor">Prof.</abbr>
+	Accronym		<acronym title="Indian Space Research Organization">ISRO</acronym>
+	Horizontal Rules	Hello<hr>World
+
+
+
+Lists
+	Numbered Lists(Ordered lists)
+		Ordered lists are lists where each item in the list is numbered. For example, the list 				might be a set of steps for a recipe that must be performed in order, or a legal 				contract where each point needs to be identified by a section number.
+	<ol>
+		<li>Chop potatoes into quarters</li>
+		<li>Simmer in salted water for 15-20 minutes until tender</li>
+		<li>Heat milk, butter and nutmeg</li>
+		<li>Drain potatoes and mash</li>
+		<li>Mix in the milk mixture</li>
+	</ol>
+
+
+
+
+
+
+
+
+
+	Bullet Lists (Unordered lists)
+		Unordered lists are lists that begin with a bullet point (rather than characters that 				indicate order).
+	<ul>
+		<li>1kg King Edward potatoes</li>
+		<li>100ml milk</li>
+		<li>50g salted butter</li>
+		<li>Freshly grated nutmeg</li>
+		<li>Salt and pepper to taste</li>
+	</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+	Definition Lists(Definition lists)
+		Definition lists are made up of a set of terms along with the definitions for each of 			those terms.
+	
+	<dl>
+		<dt>Sashimi</dt>
+			<dd>Sliced raw fish that is served with condiments such as shredded 			daikon radish or ginger root, wasabi and soy sauce</dd>
+
+		<dt>Scale</dt>
+			<dd>A device used to accurately measure the weight of ingredients</dd>
+			<dd>A technique by which the scales are removed from the skin of 			a fish</dd>
+
+		<dt>Scamorze</dt>
+
+		<dt>Scamorzo</dt>
+			<dd>An Italian cheese usually made from whole cow's milk (although it 					was traditionally made from buffalo milk)</dd>
+	</dl>
+
+
+	Nested Lists
+	
+	<ul>
+		<li>Mousses</li>
+		<li>Pastries
+			<ul>
+				<li>Croissant</li>
+				<li>Mille-feuille</li>
+				<li>Palmier</li>
+				<li>Profiterole</li>
+			</ul>
+		</li>
+		<li>Tarts</li>
+	</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+Links
+	Creating Links between pages
+		<a href=" ">Content</a>
+
+
+	Relative and Absolute URLs
+		
+
+
+
+	Linking to other pages of the same site
+		<p>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about-us.html">About</a></li>
+				<li><a href="movies.html">Movies</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</p>
+
+
+
+
+
+
+
+
+
+
+
+	Linking to other sites
+		<p>Movie Reviews:
+			<ul>
+				<li><a href="http://www.empireonline.com">Empire</a></li>
+				<li><a href="http://www.metacritic.com">Metacritic</a></li>
+				<li><a href="http://www.rottentomatoes.com">Rotten Tomatoes</a></li>
+				<li><a href="http://www.variety.com">Variety</a></li>
+			</ul>
+		</p>
+
+
+
+
+
+
+
+
+	Email Links
+		
+		<a href="mailto:narend.167@gmail.com">Email to Narendra</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Opening Links in a new Window
+		
+		<a href="http://www.google.com" target="_blank">Google Search</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Images
+	<img src="" alt="" title="" height="" width="" />
+
+
+Where to Place Images in Your Code
+---------------------------------------------	
+<img src="images/bird.gif" alt="Bird" width="100" height="100" />
+
+<p>There are around 10,000 living species of birds that inhabit different ecosystems from the Arctic to the Antarctic. Many species undertake long distance annual migrations, and many more perform shorter irregular journeys.</p>
+<hr />
+
+<p>
+<img src="images/bird.gif" alt="Bird" width="100" height="100" />There are around 10,000 living
+species of birds that inhabit different ecosystems from the Arctic to the Antarctic. Many
+species undertake long distance annual migrations, and many more perform shorter
+irregular journeys.</p>
+<hr />
+
+<p>There are around 10,000 living species of birds that inhabit different ecosystems from the
+Arctic to the Antarctic.
+<img src="images/bird.gif" alt="Bird" width="100" height="100" />Many species undertake long distance annual migrations, and many more perform shorter irregular journeys.</p>
+
+
+
+Aligning Images Horizontally
+-----------------------------------------
+
+<p><img src="images/bird.gif" alt="Bird" width="100" height="100" align="left" />There are around
+10,000 living species of birds that inhabit different ecosystems from the Arctic to the
+Antarctic. Many species undertake long distance annual migrations, and many more perform shorter
+irregular journeys.</p>
+
+<hr />
+
+<p><img src="images/bird.gif" alt="Bird" width="100" height="100" align="right" />There are around
+10,000 living species of birds that inhabit different ecosystems from the Arctic to the Antarctic. Many species undertake long distance annual migrations, and many more perform shorter irregular journeys.</p>
+
+
+Aligning Images Vertically
+---------------------------------
+<p><img src="images/bird.gif" alt="Bird" width="100" height="100" align="top" />There are around
+10,000 living species of birds that inhabit different ecosystems from the Arctic to the Antarctic. Many species undertake long distance annual migrations, and many more perform shorter irregular journeys.</p>
+<hr />
+
+<p><img src="images/bird.gif" alt="Bird" width="100" height="100" align="middle" />There are around
+10,000 living species of birds that inhabit different ecosystems from the Arctic to the
+Antarctic. Many species undertake long distance annual migrations, and many more perform shorter
+irregular journeys.</p>
+<hr />
+
+<p><img src="images/bird.gif" alt="Bird" width="100" height="100" align="bottom" />There are around
+10,000 living species of birds that inhabit different ecosystems from the Arctic to the
+Antarctic. Many species undertake long distance annual migrations, and many more perform shorter
+irregular journeys.</p>
+
+
+
+
+
+HTML 5: Figure and Figure Caption
+-----------------------------------------------
+<!DOCTYPE html>
+<figure>
+	<img src="images/otters.jpg" alt="Photograph of two sea otters floating in water">
+	<br />
+	<figcaption>
+		Sea otters hold hands when they sleep so they don't drift away from eachother. 
+	</figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tables
+-------
+	table
+	tr
+	td
+		<table>
+			<tr>
+				<td>15</td>
+				<td>15</td>
+				<td>30</td>
+			</tr>
+			<tr>
+				<td>45</td>
+				<td>60</td>	
+				<td>45</td>
+			</tr>
+			<tr>
+				<td>60</td>
+				<td>90</td>
+				<td>90</td>
+			</tr>
+		</table>
+
+	Table Heading
+		<table>
+			<tr>
+				<th>Row 1</th>
+				<th>Row 2</th>
+				<th>Row 3</th>
+			</tr>
+			<tr>
+				<td>15</td>
+				<td>15</td>
+				<td>30</td>
+			</tr>
+			<tr>
+				<td>45</td>
+				<td>60</td>	
+				<td>45</td>
+			</tr>
+			<tr>
+				<td>60</td>
+				<td>90</td>
+				<td>90</td>
+			</tr>
+		</table>
+
+	Spanning Columns
+		<table>
+			<tr>
+				<th></th>
+				<th>9am</th>
+				<th>10am</th>
+				<th>11am</th>
+				<th>12am</th>
+			</tr>
+			<tr>
+				<th>Monday</th>
+				<td colspan="2">Geography</td>
+				<td>Math</td>
+				<td>Art</td>
+		</tr>
+		<tr>
+			<th>Tuesday</th>
+			<td colspan="3">Gym</td>
+			<td>Home Ec</td>
+		</tr>
+	</table>
+
+	Spanning Rows
+		<table>
+			<tr>
+				<th></th>
+				<th>ABC</th>
+				<th>BBC</th>
+				<th>CNN</th>
+			</tr>
+			<tr>
+				<th>6pm - 7pm</th>
+				<td rowspan="2">Movie</td>
+				<td>Comedy</td>
+				<td>News</td>
+			</tr>
+			<tr>
+				<th>7pm - 8pm</th>
+				<td>Sport</td>
+				<td>Current Affairs</td>
+			</tr>
+		</table>
+
+
+	Width & Spacing
+		<table width="400" cellpadding="10" cellspacing="5">
+			<tr>
+				<th width="150"></th>
+				<th>Withdrawn</th>
+				<th>Credit</th>
+				<th width="150">Balance</th>
+			</tr>
+			<tr>
+				<th>January</th>
+				<td>250.00</td>
+				<td>660.50</td>
+				<td>410.50</td>
+			</tr>
+			<tr>
+				<th>February</th>
+				<td>135.55</td>
+				<td>895.20</td>
+				<td>1170.15</td>
+			</tr>
+		</table>
+
+
+	Border & Background
+		<table border="2" bgcolor="red">
+			<tr>
+				<th width="150"></th>
+				<th>Withdrawn</th>
+				<th>Credit</th>
+				<th width="150" bgcolor="#cccccc">Balance</th>
+			</tr>
+			<tr>
+				<th>January</th>
+				<td>250.00</td>
+				<td>660.50</td>
+				<td bgcolor="#cccccc">410.50</td>
+			</tr>
+			<tr>
+				<th>February</th>
+				<td>135.55</td>
+				<td>895.20</td>
+				<td bgcolor="#cccccc">1170.15</td>
+			</tr>
+		</table>
+
+Form
+---------
+	form
+		<form action="http://www.example.com/subscribe.html" method="get">
+			<p>This is where the form controls will appear.</p>
+		</form>
+
+	Adding Text:
+		Text input (single-line)
+			<input type="text" name="txtName" id="txtName" />
+		Password input
+			<input type="password" name="txtPwd" id="txtPwd" />
+		Text area (multi-line)
+			<textarea>  </textarea>
+	Making Choices:
+		Radio buttons
+			<input type="radio" name="gender" id="male" value="Male"/>Male
+			<input type="radio" name="gender" id="female" value="Female"/>Female
+		Checkboxes
+			<input type="checkbox" name="skills" id="c" value="C"/>C
+			<input type="checkbox" name="skills" id="c" value="C++"/>C
+			<input type="checkbox" name="skills" id="c" value="Java"/>C
+		Drop-down boxes
+			<select name="title">
+				<option value="Mr.">Mr.</option>
+				<option value="Mrs.">Mrs.</option>
+				<option value="Miss.">Miss.</option>
+			</select>
+	Buttons:
+		button
+			<input type="button" name="btn" id="btn1" value="Calculate"/>	
+		reset
+			<input type="reset" name="rst" id="rst1" value="Clear"/>		
+			
+	Submitting Forms:
+		Submit buttons
+			<input type="submit" name="smt" id="smt1" value="Save"/>			
+		Image buttons
+			<a href=""><img src="" onclick="func()"/></a>
+
+	Uploading Files:	
+		File upload
+			<input type="file" name="file" id="file1" />
+
+
+
+
+
+
+
+
+

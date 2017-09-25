@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Customer Incident Form</title>
+		<link rel="stylesheet" href="css/customerStyle.css">
+		<script src="script/cust.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Customer Incident Form</h1>
+		</header>
+		<h4> We appreciate your business and want to hear about your experience during your visit</h4>
+		
+		<form>
+			<table align="center">
+				<tr>
+					<td class="right">Name &nbsp;&nbsp;</td>
+					<td><input type="text" name="txtName" id="txtName" size="50" pattern="[A-Za-z]{3,20}" required /></td>
+				</tr>
+				
+				<tr>
+				<td class="right">Address &nbsp;&nbsp;</td>
+				<td> 
+					<textarea rows="5" cols="50"name ="txtAddr" id= "txtAddr" required></textarea>
+				</td>
+				</tr>
+				
+				<tr>
+					<td class="right">State &nbsp;&nbsp;</td>
+					<td>
+						<select id="selState" name ="selState" required>
+						<option>--- Select State ---</option>
+							<option>Karnataka-KA</option>
+							<option>Tamilnadu-MAS</option>
+							<option>Kerala-KL</option>
+							<option>Andhrapradesh-AP</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="right">Phone &nbsp;&nbsp;</td>
+					<td><input type="text" name="txtPhone" id="txtPhone" size="50" pattern="[0-9]{10}" required /></td>
+				</tr>
+				
+				<tr>
+				
+				<tr>
+					<td class="right">Email &nbsp;&nbsp;</td>
+					<td><input type="email" name="txtEmail" id="txtEmail" size="50" required /></td>
+				</tr>
+				
+				<tr>
+				
+				<tr>
+					<td class="right">Preferred Way to contact you? &nbsp;&nbsp;</td>
+					<td>
+						<input type="radio" name="rbtContact" value="email" id="email"/>E-mail
+						<input type="radio" name="rbtContact" value="phone" id="phone"/>Phone
+						<input type="radio" name="rbtContact" value="postal_mail" id="postal_mail"/>Postal Mail
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="right">Date of Visit &nbsp;&nbsp;</td>
+					<td>
+						<input type="date" id="date_visit" name="date_visit" required />
+					</td>
+				</tr>
+				
+				<tr>
+				<td class="right">Please describe the incident &nbsp;&nbsp;</td>
+				<td> 
+					<textarea rows="5" cols="50" name="txtIncident" id= "txtIncident" required ></textarea>
+				</td>
+				</tr>
+				
+				<tr>
+				<td class="right"><input class="btn" type="submit" value="Submit" onclick="showDetails(this.form)"></td>
+				<td> 
+					<input class="btn" type="button" value="Preview" onclick="showPreview(this.form)">
+				</td>
+				</tr>
+				
+				
+				
+			</table>
+		</form>
+
+	</body>	
+</html>

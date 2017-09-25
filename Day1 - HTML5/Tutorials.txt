@@ -1,0 +1,72 @@
+HTML
+	In 1989 by Tim Berners Lee
+	HTML - 
+		HT -> HyperText --> The Documents are interlinked.
+		ML -> Markup Language--> Gives structure to information
+
+	HTML Page is also called as Static WebPage
+
+	Why HTML does not have any competitors?
+	1) Easy to Learn
+	2) Hyperlinked (anchor tag)
+	
+		Anatomy of Web Page
+			1) HTML (Structures the page)
+			2) CSS (Gives styles to the page)
+			3) JavaScript  (Interactive and Dynamic)
+
+
+CSS
+	Types
+	1) Inline or embedded
+	2) Internal 
+	3) External
+
+	Advantages of External CSS
+	1) Reusablity
+	2) Easy to modify/upgrade
+	3) Structure and Styling is separated
+
+Introducing JavaScript
+	Why?
+		1) Interactive Pages
+		2) Validation
+
+	Q) What diff between Client Side and Server Side Scripting
+	Ans) Client side script runs inside browser and sever side script runs at server(for e.g: tomcat)
+	
+	Q) Why can't I write entire app code that runs at client side?
+	Ans) It will insecure since, it is visible to the client as well as we cannot access database from Javscript.
+
+
+
+Introducing jQuery
+
+	Problem with Javascript
+	1) Our HTML page is cluttered with javscript code, unlike CSS.
+	Structuring logic and Validation/Intercativity logic is mixed.
+	E.g. Calling javscript function from onclick attribute of your button tag.
+	2) Animation/validation logic may differ from person to person, it may or may not be efficient.
+	
+	Solution:
+	1) Separate the Structuring logic and Validation/Intercativity logic from web page
+	2) use prebuilt logic for animation, etc..  which is very well optimized and well tested instead of creating our own.
+	such inbuilt code are nothing but Javascript Libraries.
+
+jQuery
+	It is a popular javascript  library
+	Well tested
+	It is highly optimized
+	decreases development time
+	follows "Write Less Do More".
+	developer productivity increases.
+
+When browsers receives a page it tries to load the tags and create Document Object Model Structure, once the DOM object is created, your document is in ready state. so whatever you want to do with your page, do it after the page is ready.
+	
+$document.ready(){
+	
+}
+
+
+
+	

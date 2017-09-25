@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<title>Form API</title>
+		<style>
+			input {
+				font-weight:bold;
+				font-size:18px;
+			}
+		</style>
+	</head>
+	<body style="font-family:'Segoe UI'">
+		<h1>Fill Employee Details..</h1>
+		<form name="form1" action="register.html" autocomplete="off" method="post">
+			<table align="center" border="2" cellspacing="0" cellpadding="3">
+				<tr>
+					<th> Full Name : </th>
+					<td>
+		<input type="text" id="txtName" name="txtName" value="Ashish"
+	placeholder="Full Name.." maxlength="50" size="50" />
+					</td>
+				</tr>
+	<tr>
+                		<th>Age : </th>
+                		<td>
+                    		<input type="number" id="txtAge" name="txtAge"
+		                           min="18" max="40" step="2" 
+		           	autofocus	                placeholder="Age.." />
+                		</td>
+            </tr>
+<tr>
+                <th>Address : </th>
+                <td>
+                    <textarea id="txtAddr" name="txtAddr" rows="5" cols="60"
+                              maxlength="500"  size="50"
+                              placeholder="Type Address.."></textarea>
+                </td>
+            </tr>
+<tr>
+                <th>Mobile Number : </th>
+                <td>
+                    <input type="text" id="txtMN" name="txtMN"
+                           placeholder="Mobile Number.." pattern="[0-9]{10}"
+                           maxlength="10" />
+                </td>
+            </tr>
+<tr>
+                <th>Contact Number : </th>
+                <td>
+                    <input type="int" id="txtCN" name="txtCN"
+                           placeholder="Contact Number.." minlength="10" pattern="[0-9]{10}"
+                           maxlength="10" />
+                </td>
+            </tr>
+             <tr>
+                <th>Email Address : </th>
+                <td>
+                    <input type="email" id="txtEmail" name="txtEmail"
+                           placeholder="Email Address.." maxlength="40" size="40" />
+                </td>
+            </tr>
+            <tr>
+                <th>User Name : </th>
+                <td>
+                    <input type="text" id="txtUN" name="txtUN" required
+                           placeholder="User Name.." maxlength="8" />
+                </td>
+            </tr>
+            <tr>
+                <th>Password : </th>
+                <td>
+                    <input type="password" id="txtPD" name="txtPD" required
+                           placeholder="Password.." maxlength="8" />
+                </td>
+            </tr>
+           <tr>
+                <th>Gender : </th>
+                <td>
+                    <input type="radio" id="rbtnMale" name="gender" value="M"  />Male
+                    <input type="radio" id="rbtnFemale" name="gender" value="F" checked/>Female
+                </td>
+            </tr>
+	 <tr>
+                <th>Languages Known : </th>
+                <td>
+                    <input type="checkbox" id="chkE" name="chkE" value="Eng" />English
+                    <input type="checkbox" id="chkT" name="chkT" value="Tel" />Telugu
+                    <input type="checkbox" id="chkH" name="chkH" value="Hin" />Hindi
+                    <input type="checkbox" id="chkM" name="chkM" value="Mar" />Marathi
+                </td>
+            </tr>
+<tr>
+                <th> Select City : </th>
+                <td>
+                    <select name="City">
+                        <option value="Select">--Select--</option>
+                        <option selected value="Mumbai">Mumbai</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Chennai">Chennai</option>
+                    </select>
+                </td>
+            </tr>
+	<tr>
+                <th>State : </th>
+                <td>
+                    <input type="text" id="txtState" name="txtState" maxlength="20"
+                           placeholder="State" list="StateList" />
+                    <datalist id="StateList">
+                        <option value="Select">--Select--</option>
+                        <option value="MH">Maharashtra</option>
+                        <option value="AndraPradesh">AP</option>
+                        <option value="Karnataka">KA</option>
+                        <option value="TamilNadu">TN</option>
+                    </datalist>
+                </td>
+            </tr>
+  <tr>
+                <th>Company URL : </th>
+                <td>
+                    <input type="url" id="txturl" name="txturl" maxlength="40"
+                           placeholder="Company Website " />
+                </td>
+            </tr>		
+<tr>
+                <th>Date Of Joining</th>
+                <td><input type="date" id="txtDOJ" name="DOJ"/></td>
+            </tr>
+            <tr>
+                <th>Upload Photo : </th>
+                <td>
+                    <input type="file" id="fileImg" name="fileImg" />
+                </td>
+            </tr>
+			<tr>
+                <th>Slider : </th>
+                <td>
+                    <input type="range" min="0"
+					max="10" value="0" />
+                </td>
+            </tr>
+<tr>
+                <td align="right">
+                    <input type="submit" value="Register" onclick="alert('record is submitted');" />
+                </td>
+                <td><input type="reset" value="Cancel" /></td>
+            </tr>
+</table>
+
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+

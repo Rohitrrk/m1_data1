@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<title>Register Employee..</title>
+		<link href="../css/emp.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h2>Fill Employee Details ..</h2>
+		<form method="post">
+		<table align="center" width="90%">
+			<tr>
+				<td class="right"> User Name : &nbsp;&nbsp;</td>
+				<td> <input type="text" required autofocus pattern="[A-Za-z]{3,10}"
+	maxlength="30" size="40" name="txtUN" id="txtUN"
+				placeholder="User Name" />
+			</tr>
+			<tr>
+				<td class="right"> Password : &nbsp;&nbsp;</td>
+				<td> <input type="password" required
+	maxlength="8"	name="txtPD" id="txtPD"
+				placeholder="Password" />
+			</tr>
+			<tr>
+				<td class="right"> Age : &nbsp;&nbsp;</td>
+				<td> <input type="number" step="2"
+	min="18" max="40" name="txtAge" id="txtAge"
+				placeholder="Age" />
+			</tr>
+			<tr>
+				<td class="right"> Address : &nbsp;&nbsp;</td>
+				<td> <textarea rows="5" cols="60"
+		disabled		name="txtAddr" id="txtAddr"
+				placeholder="Address"></textarea>
+			</tr>
+			</tr>
+			<tr>
+                <td class="right">Mobile Number : &nbsp;&nbsp;</td>
+                <td>+91 -
+                    <input type="text" id="txtMN" name="txtMN" readonly
+          maxlength="10" placeholder="Mobile Number"pattern="[7-9][0-9]{9}" />
+                </td>
+            </tr>
+			<tr>
+                <td class="right">Email Address : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="email" id="txtEmail" name="txtEmail"
+                           placeholder="Email Address.." maxlength="40" size="40" />
+                </td>
+            </tr>
+			<tr>
+                <td class="right">Gender : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="radio" id="rbtnMale" name="gender" value="M" checked/>Male
+                    <input type="radio" id="rbtnFemale" name="gender" value="F" />Female
+                </td>
+            </tr>
+			<tr>
+                <td class="right">Languages Known : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="checkbox" id="chkE"value="Eng" name="chkLK" checked/>English
+                    <input type="checkbox" id="chkT" name="chkLK" value="Tel" />Telugu
+                    <input type="checkbox" id="chkH" name="chkLK" value="Hin" />Hindi
+                    <input type="checkbox" id="chkM" name="chkLK" value="Mar" />Marathi
+                </td>
+            </tr>
+			<tr>
+                <td class="right"> Select City : &nbsp;&nbsp;</td>
+                <td>
+                    <select name="ddlCity" style="width:150px">
+           <option value="Select">--Select--</option>
+      <option selected value="Mumbai">Mumbai</option>
+		<option value="Hyderabad">Hyderabad</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Chennai">Chennai</option>
+                    </select>
+                </td>
+            </tr>
+			<tr>
+                <td class="right">State : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="text" id="txtState" name="txtState" maxlength="20"
+              placeholder="State" list="StateList" />
+                    <datalist id="StateList">
+           <option value="Maharashtra">MH</option>
+           <option value="AndraPradesh">AP</option>
+           <option value="Karnataka">K</option>
+           <option value="TamilNadu">TN</option>
+           <option value="Google">http://google.com</option>
+                    </datalist>
+                </td>
+            </tr>
+			<tr>
+                <td class="right">Company URL : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="url" id="txtUrl" name="txtUrl" maxlength="40"
+                           placeholder="E.g: http://google.com " />
+                </td>
+            </tr>
+			<tr>
+                <td class="right">Date Of Joining : &nbsp;&nbsp;</td>
+                <td><input type="date" id="txtDOJ" name="txtDOJ" max="2017-09-07"/></td>
+            </tr>
+            <tr>
+                <td class="right">Upload Photo : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="file" id="fileImg" name="fileImg" />
+                </td>
+            </tr>
+			<tr>
+                <td class="right">Slider : &nbsp;&nbsp;</td>
+                <td>
+                    <input type="range" id="txtRange" name="txtRange" min="0" max="5" value="0" />
+                </td>
+            </tr>
+			<tr>
+                <td class="right">
+                   <input class="btn" type="submit" value="  Register  "  />
+                </td>
+                <td><input class="btn" type="reset" value="  Cancel  " /></td>
+            </tr>
+			<tr>
+				<td>
+				<input type="hidden" name="message"
+				id="message" value="Hello World" />
+				</td>
+			</tr>
+</table>
+</form>
+<button onclick="alert(document.forms[0].message.value)">Click Me..</button>
+	</body>
+</html>

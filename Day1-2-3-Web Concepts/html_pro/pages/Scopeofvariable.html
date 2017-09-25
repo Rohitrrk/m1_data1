@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Scope of variable</title>
+		<script>
+		// Global variable
+			var companyName = "CapGemini";
+			
+			function displayName()
+			{
+			// Local variable
+				 employeeName = "Thomas";
+				document.write("Welcome to "+companyName+", "+employeeName);
+			}
+			
+			displayName();
+			
+			document.write("Welcome to "+companyName+", "+employeeName);
+			
+			companyName = "CG";
+			employeeName = "Tom";
+			
+			document.write("Welcome to "+companyName+", "+employeeName);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

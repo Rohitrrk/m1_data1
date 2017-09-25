@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Enter your name: <input type="text" id="fname" onfocus="myFunction1()" onblur="myFunction2()">
+
+
+<script>
+function myFunction2() {
+    var x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+    x.style.color="black";
+    x.style.background="white";
+}
+function myFunction1() {
+ 	var x = document.getElementById("fname");
+    x.style.background="orange";
+    x.style.color="white";
+    x.style.fontWeight = "bold";
+}
+</script>
+
+</body>
+</html>

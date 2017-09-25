@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Array Example</title>
+		<script>
+		
+		var boysList = new Array('Karthik', 'Anil', 'Mayur', 'Kedar');
+
+        document.write("Total no of elements in array : " + boysList.length);
+		
+		document.write('<br/>Displaying names : <br/>');
+        for (i = 0; i < boysList.length; i++)
+            document.write(boysList[i].bold() + '<br/>');
+		
+		// Sorting in Ascending Order
+		boysList.sort();         
+
+        document.write('<br/>After Sort Displaying names in ascending order : <br/>');
+        for (i = 0; i < boysList.length; i++)
+            document.write(boysList[i].italics() + '<br/>');
+		
+		// Sorting in Descending Order
+		boysList.reverse();      
+        
+		document.write('<br/>After Sort Displaying names in Descending order : <br/>');
+        for (i = 0; i < boysList.length; i++)
+            document.write(boysList[i].italics().bold() + '<br/>'); // Method chaining
+		
+		var list = boysList.join(" # ");
+        document.write('<br/> After Joining all elements ' + list);
+
+        var girlsList = new Array('Radhika', 'Shreya', 'Radha', 'Arohi');
+		
+		var studentsList = boysList.concat(girlsList);
+        document.write('<br/><br/>typeof(studentsList) ' + typeof (studentsList));
+		
+        document.write('<br/><br/> After Concatinating <b>' + studentsList + "</b>");
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

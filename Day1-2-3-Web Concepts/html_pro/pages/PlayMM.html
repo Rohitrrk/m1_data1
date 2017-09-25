@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Audio and Video</title>
+		<script src="..\scripts\modernizr-2.6.2.js"></script> 
+		<script>
+			if(Modernizr.audio)
+				alert('It is supported');
+			else
+				alert('It is not supported');
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<h3>Audio</h3>
+				</td>
+				<td>
+					<h3>Video</h3>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio autoplay controls loop>
+						<source src="..\media\Bharat.mp3" type="audio/mp3" />
+					</audio>
+				</td>
+				<td>
+					<video controls autoplay loop>
+						<source src="..\media\idea.mp4"
+						type="video/mp4"/>
+					</video>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

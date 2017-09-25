@@ -1,0 +1,19 @@
+			/* universal selector */
+			
+			*{
+				font-family:'Segoe UI';
+				//font-style:italic;
+			}
+			/* Tag Or Element Selector*/
+			td{
+				text-align:center;
+			}
+			/* creating own class in css */
+			.desig{
+				background-color:purple;
+				color:white;
+			}
+			h1{
+				background-color:orange;
+				color:white;
+			}

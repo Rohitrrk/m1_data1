@@ -1,0 +1,9 @@
+
+SQL> SELECT Dname FROM Department Where deptno = (SELECT Deptno FROM student Group by deptno Having count(studno) = (SELECT max(count(studno)) FROM Student Group by deptno));
+
+DNAME
+--------------
+RESEARCH
+
+SQL>
+

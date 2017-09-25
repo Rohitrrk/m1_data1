@@ -1,0 +1,10 @@
+body, select, input{
+		font-family:'Segoe UI';
+}
+table{
+	border:8px solid black;
+	padding:5px;
+}
+.innertable{
+	border:1px solid black;
+}

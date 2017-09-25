@@ -1,0 +1,52 @@
+<br/>
+<p>
+<headers>
+---------------	Styles
+<b>, <strong>
+<i>, <em>
+<comments>
+<hr>
+---------------
+<ul>, <ol>,<dl>	Lists
+-------------------
+<a>		Anchor tag
+-------------------
+<img>
+-------------------
+directory structures
+	1) single folder structure
+-------------------------------------
+Multimedia tags [Audio & Video]
+-------------------------------------
+CSS - Cascading StyleSheet
+	1) Inline styling
+	2) Internal CSS
+	3) External CSS
+-------------------------------------
+Font Properties
+	font-family, font-weight, font-style
+-------------------------------------
+		1) Tag Or Element selector
+		2) Class Selector
+		3) ID Selector
+-------------------------------------
+
+CSS Box model [4 parts]
+	--Content
+	--Padding - inside the border
+	--border - over
+	--margin	- outside the border, like whitespace
+-------------------------------------
+Div & span - It will not change content in any way
+	div tag is big block level element
+	span tag is inline element
+-------------------------------------
+Colors
+	-Hexadecimal colors
+		[combination of numbers and alphabate a to f]
+	-rgb function
+-------------------------------------
+ Background image
+-------------------------------------
+Class Selector
+-------------------------------------

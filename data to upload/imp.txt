@@ -1,0 +1,55 @@
+--CREATE TABLE Author
+CREATE TABLE Author(
+authorId 		NUMBER(4),
+authorName 	VARCHAR2(30) NOT NULL,
+authorLocation 	VARCHAR2(30),
+CONSTRAINT pk_author PRIMARY KEY(authorId));
+
+--CREATE TABLE Book
+CREATE TABLE Book(
+bookId 		NUMBER(4),
+bookName 	VARCHAR2(30) NOT NULL,
+bookPrice 	NUMBER(7,2),
+authorId 		NUMBER(4),
+CONSTRAINT pk_book PRIMARY KEY(bookId),
+CONSTRAINT fk_book FOREIGN KEY(authorId) REFERENCES Author(authorId));
+
+--CREATE TABLE BookTransaction
+CREATE TABLE BookTransaction(
+tranId 		NUMBER(4),
+bookId	 	NUMBER(4),
+tranStatus 	VARCHAR2(10),
+CONSTRAINT pk_bookTran PRIMARY KEY(tranId),
+CONSTRAINT fk_bookTran FOREIGN KEY(bookId) REFERENCES Book(bookId),
+CONSTRAINT chk_bookTran CHECK (tranStatus in ('RETURN','NOTRETURN')));
+
+-- CREATE TABLE errLog
+CREATE TABLE errorLog
+(errNum VARCHAR2(50),
+errDesc VARCHAR2(100),
+errDate DATE);
+
+-- CREATE SEQUENCE seq_Book
+CREATE SEQUENCE seq_Book
+START WITH 1001
+INCREMENT BY 1;
+
+-- CREATE PROCEDURE PRC_CREATE_AUTHOR
+CREATE or REPLACE PROCEDURE PRC_CREATE_AUTHOR(
+authId NUMBER,authName VARCHAR2,authLoc VARCHAR2 DEFAULT 'MUMBAI')
+AS
+-- DECLARE SECTION
+      ecode           VARCHAR2(20);
+      emsg            VARCHAR2(40);
+      dup_authorId    EXCEPTION;
+      v_counter       BINARY_INTEGER;
+BEGIN
+  -- CHECKING FOR DUPLICATE RECORD
+  SELECT count(*) INTO v_counter 
+  FROM Author
+  WHERE authorId = authId;
+  
+  IF v_counter > 0 THEN
+      RAISE dup_authorId;
+  END IF;
+  

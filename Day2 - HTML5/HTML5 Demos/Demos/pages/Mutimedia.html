@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Multimedia Tags..</title>
+    <script src="../scripts/modernizr-2.6.2.js"></script>
+    <script>
+        if (Modernizr.canvas)
+            alert('supported');
+        else
+            alert('not supported');
+    </script>
+</head>
+<body>
+    <table>
+        <!--<tr>
+            <td>Audio</td>
+            <td>Video</td>
+        </tr>
+        <tr>
+            <td>
+                <audio controls loop>
+                    <source src="../media/OSANAM.mp3" type="audio/mpeg" />
+                    audio tag is not supported..
+                </audio>
+            </td>
+            <td>
+                    <video controls="controls">
+                        <source src="../media/MustSee.mp4" type="video/mp4" />
+                        video tag is not supported..
+                    </video>
+                </td>
+        </tr>-->
+        <tr>
+            <td colspan="2">
+                <canvas id="mycanvas"></canvas>
+                <script>
+                    var mycanvas = document.getElementById("mycanvas");
+                    var ctx = mycanvas.getContext('2d');
+                    ctx.fillStyle = '#00FF00';
+                    ctx.fillRect(0, 0, 80, 100);
+                    
+                </script>
+            </td>
+        </tr>
+
+
+    </table>
+</body>
+</html>

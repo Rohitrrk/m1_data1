@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+    <title>Billing form</title>
+    <script src="scripts/BillingJS.js"></script>
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <form id="form1">
+        <table align="center" cellpadding="3px" cellspacing="1">
+            <tr>
+                <th colspan="2">Billing Form</th>
+            </tr>
+<!--To enter Name with select options for MR,Mrs,Ms,Dr.-->
+            <tr>
+                <td>Name *</td>
+                <td colspan="2">
+                    <select name="ddlTitle" id="ddlTitle" style="width:40px">
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Dr.">Dr.</option>
+                    </select>
+                    <input type="text" id="txtName" name="txtName" pattern="[a-zA-Z]{3,40}" required />
+                </td>
+            </tr>
+<!--To enter Address with text area -->
+            <tr>
+                <td>Address *</td>
+                <td><input type="text" id="txtAddr" name="txtAddr" maxlength="20" required /></td>
+            </tr>
+<!--To enter Mobile Number with maxlength 10 and is required-->
+            <tr>
+                <td>Mobile Number * </td>
+                <td><input type="text" id="txtMobileNum" name="txtMobileNum"  maxlength="10" pattern="[0-9]{10}" required /></td>
+            </tr>
+<!--To enter EmailID and is required-->
+
+            <tr>
+                <td>Email ID *</td>
+                <td><input type="email" id="txtEmail" name="txtEmail" maxlength="40"  required /></td>
+            </tr>
+<!--To Select a car model from dropdown list (HAtchback,sedan,all and smallcars )-->
+            <tr>
+                <td>Select Car Model </td>
+                <td>
+                    <select name="ddlCarType" id="ddlCarType" style="width:175px">
+                        <option value="HatchBack">HatchBack</option>
+						<option value="SmallCar">Small Cars</option>
+                        <option value="Sedan">Sedan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table align="center" width="100%" class="innertable" width="300px" height="50px">
+                        <tr>
+                            <td>Type of Service Taken *</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="chkFS" name="serviceType" value="Free Service" checked/>Free Service</td>
+                            <td><input type="checkbox" id="chkBR" name="serviceType" value="BodyRepair" />Body Repair</td>
+                        </tr>
+                        <br />
+                        
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">        Cost of the Vehicle *</td>
+                            <td align="center"><input type="text" id="txtCost"  
+							name="txtCost" pattern="[0-9]{7,10}" maxlength="10" required /></td>
+                        </tr>
+                       
+                        <tr>
+                            <td align="center"><input id="btnSubmit" type="submit" value="Submit" onclick="calculateBill(this.form)" /></td>
+                            <td align="center"><input id="btnCancel" type="reset" value="Cancel" /></td>
+                        </tr>
+                        <br />
+                        <br />
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+</body>
+</html>

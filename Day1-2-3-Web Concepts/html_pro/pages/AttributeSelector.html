@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Attribute selector..</title>
+		<style> 
+      img[title]{
+          border:1px solid blue;
+      }
+        img[src="../images/education.png"] {
+            border: 6px dotted red;
+        }
+		
+		img[alt~="small"] {
+            border: 5px dashed green;
+        }
+    </style>
+	</head>
+	<body>
+		<img src="../images/kids_education.jpg" title="Kid Image" alt="kids education Image not found" width="400"
+         height="350" />
+		 
+		<img src="../images/education.png" width="400" height="350" />
+
+		<img src="../images/education.png" width="400" height="350" alt="small pic"/>
+
+		
+	</body>
+</html>

@@ -1,0 +1,164 @@
+CREATE TABLE Employee
+  (
+    EmpNo   NUMBER CONSTRAINT pk_empno PRIMARY KEY,
+    Ename   VARCHAR2(20),
+    Address VARCHAR2(30),
+    PhoneNo CHAR(10)
+  );
+INSERT INTO Employee VALUES
+  (101,'Sanjay','Mumbai',9876543210
+  );
+INSERT INTO Employee VALUES
+  (102,'Kalai','Pune',9998654321
+  );
+INSERT INTO Employee VALUES
+  (103,'Raju','Chennai',9678943210
+  );
+INSERT INTO Employee VALUES
+  (104,'Vinay','Banglore',8876543288
+  );
+INSERT INTO Employee VALUES
+  (105,'Amit','Mumbai',9888943210
+  );
+INSERT INTO Employee VALUES
+  (106,'Radha','Chennai',7878787821
+  );
+CREATE TABLE Referral
+  (
+    RefNo   NUMBER CONSTRAINT pk_refno PRIMARY KEY,
+    RefName VARCHAR2(20),
+    Address VARCHAR2(30),
+    PhoneNo CHAR(10),
+    Degree  VARCHAR2(4),
+    Empno   NUMBER REFERENCES Employee(EmpNo)
+  );
+INSERT INTO Referral VALUES
+  (5000,'Praveen','Chennai',9897969594,'BE',104
+  );
+INSERT
+INTO Referral VALUES
+  (
+    5001,
+    'Anbazhagan',
+    'Banglore',
+    8989878767,
+    'BSc',
+    106
+  );
+INSERT INTO Referral VALUES
+  (5002,'Saravanan','Chennai',7876757878,'BE',104
+  );
+INSERT INTO Referral VALUES
+  (5003,'Rakesh','Pune',7788778877,'BSc',105
+  );
+INSERT INTO Referral VALUES
+  (5004,'Vikas','Mumbai',9844577866,'BE',106
+  );
+INSERT INTO Referral VALUES
+  (5005,'Sandeep','Pune',8867756643,'BSc',102
+  );
+INSERT INTO Referral VALUES
+  (5006,'Sumit','Banglore',9897969594,'BE',106
+  );
+INSERT INTO Referral VALUES
+  (5007,'Rajesh','Mumbai',7854323456,'BSc',104
+  );
+INSERT INTO Referral VALUES
+  (5008,'Shalini','Chennai',9897654594,'BE',105
+  );
+CREATE TABLE ReferralStatus
+  (
+    RefNo  NUMBER REFERENCES Referral(RefNo),
+    Status VARCHAR(50)
+  );
+INSERT INTO ReferralStatus VALUES
+  (5003,'Selected'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5001,'Screening pending'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5005,'Screening selected'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5000,'Selected'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5002,'Rejected'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5004,'Screening pending'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5007,'Screening selected'
+  );
+INSERT INTO ReferralStatus VALUES
+  (5008,'Selected'
+  );
+CREATE sequence referencenum Start with 5010;
+  ---------Question 2(a)--------------
+  SELECT e.EmpNo AS "Empno",
+    Ename        AS "Ename",
+    RefName      AS "Ref Name",
+    Status       AS "Status"
+  FROM Employee e
+  INNER JOIN Referral r
+  ON e.EmpNo= r.empno
+  INNER JOIN ReferralStatus rs
+  ON r.RefNo=rs.RefNo;
+  ----------Question 2(b)------------
+  SELECT Ename,
+    COUNT(RefNo)
+  FROM Employee e
+  INNER JOIN Referral r
+  ON e.EmpNo= r.empno
+  GROUP BY e.Ename,
+    e.Empno;
+	
+	----------Question 2(c)------------
+	UPDATE ReferralStatus 
+	SET status = 'Scheduled'
+	WHERE refno IN (SELECT refno FROM Referral WHERE Degree = 'BE')
+	
+  ---------Question 3-------------
+  INSERT
+  INTO Referral VALUES
+    (
+      referencenum.nextval,
+      &Refname,
+      &Address,
+      &PhoneNo,
+      &Degree,
+      &EmpNo
+    );
+---------Question 1--------------
+CREATE OR REPLACE PROCEDURE PRC_GET_REFERRAL(
+EmpNo NUMBER,RefName out v_Referral.Refname%TYPE,v_PhoneNo out Referral.PhoneNo%TYPE)
+AS
+    CURSOR cname IS SELECT RefName,PhoneNo FROM Referral WHERE EmpNo=EmpNo;
+  	no_data 		    EXCEPTION;
+BEGIN
+   	OPEN cname;
+		WHILE cname%FOUND
+		LOOP
+				FETCH cname INTO v_RefName,v_PhoneNo;
+		END LOOP;
+    CLOSE cname;  
+  	ELSE
+  		RAISE no_data;
+  	END IF;
+	
+  EXCEPTION
+  	WHEN no_data THEN
+		DBMS_OUTPUT.PUT_LINE('No Referrals by this Employee');
+ END;
+ 
+ DECLARE
+    EmpNo Referral.EmpNo%TYPE:=&EmpNo;
+    v_RefName Referral.RefName%TYPE; 
+    v_PhoneNo Referral.PhoneNo%TYPE;
+ BEGIN
+    PRC_GET_AUTHOR(EmpNo,v_RefName,v_PhoneNo);
+      DBMS_OUTPUT.PUT_LINE(v_RefName);
+    DBMS_OUTPUT.PUT_LINE(v_PhoneNo);
+ END;

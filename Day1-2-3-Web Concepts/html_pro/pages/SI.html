@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>Simple Interest..</title>
+		<style>
+			*{
+				font-family:Segoe UI;
+				font-size:20px;
+			}
+			h2, h1{
+				text-align:center;
+				background-color:purple;
+				color:white;
+			}
+			table{
+				border:5px solid red;
+			}
+			
+		</style>
+		<!-- External JS -->
+		<script src="../scripts/SimpleInt.js"></script>
+	</head>
+	<body>
+		
+		<h2>Simple Interest..</h2>
+		<!-- <form method="post" action="mydetails.html"> -->
+		<form>
+		<table align="center" cellpadding="5">
+			<tr>
+				<td> Principle Amount : </td>
+				<td>
+					<input type="text" name="txtP"
+	required				id="txtP" placeholder="Principle Amt" />
+				</td>
+			</tr>
+				<tr>
+				<td> No. Of Years : </td>
+				<td>
+					<input type="text" name="txtN"
+	required				id="txtN" placeholder="No. Of Years" />
+				</td>
+			</tr>
+			</tr>
+				<tr>
+				<td> Rate Of Interest : </td>
+				<td>
+					<input type="text" name="txtR"
+		required			id="txtR" placeholder="Rate Of Interest" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- <input type="button" value="Calculate SI"onclick="calSI(txtP,txtN,txtR)"/> -->
+					
+					<input type="submit" value="Calculate SI"onclick="calSI(this.form)"/>
+				</td>
+				<td>
+					<input type="reset" value="Clear" />
+				</td>
+			</tr>
+		</table>
+		<hr/>
+		<h1 id="res"></h1>
+		</form>
+	</body>
+</html>

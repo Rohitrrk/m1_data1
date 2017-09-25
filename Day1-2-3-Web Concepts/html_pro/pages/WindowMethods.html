@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Window object Methods</title>
+		<script>
+			function Display()
+			{
+				 var r=confirm("Press a button");
+				if (r==true)
+				{
+					document.write("You pressed OK!");
+				}
+				else
+				{
+					document.write("You pressed Cancel!");
+				}
+			}
+			
+			function checkEO() {
+				var num = parseInt(prompt('Enter Number ',10));
+				if(num == 0)
+					alert('Neither Even Nor Odd..');
+				else if (num%2 == 0)
+					alert(num+ 'Even number..');
+				else
+					alert(num+ 'Odd number..');
+			}
+		</script>
+	</head>
+	<body>
+		<h2> Window Object Methods </h2>
+		
+		<ol>
+			<li>Alert</li>
+			<li>Confirm</li>
+			<li>Prompt</li>
+		</ol>
+		
+		<input type="button" value="Display Confirm Box" onclick="Display()"/>
+		
+		<input type="button" value="Check Even Odd" onclick="checkEO()"/>
+		
+		
+	</body>
+	
+</html>

@@ -1,0 +1,158 @@
+/*********************************************************************
+ * File                 : ATM_System.txt
+ * Author Name          : Govind
+ * Desc                 : Program to perform withdraw functionality for ATM System
+ * Version              : 1.0
+ * Last Modified Date   : 12-09-2017
+ * Change Description   : Description about the changes implemented
+ *********************************************************************/
+
+/******* Creating Customer record with account_number,customer_name,current_balance***********/
+ 
+RECORD Customer
+	DECLARE account_number AS BigInteger
+	DECLARE customer_name AS STRING
+	DECLARE current_balance AS DECIMAL
+END RECORD
+
+
+BEGIN
+	DECLARE Customer cust; //Creating Customer record variable
+	DECLARE withdraw_amt AS DECIMAL; 
+	
+	
+	//At Every Input of Customer it will check for Error if no error then proceed fruther otherwise it will raise EXCEPTION
+	
+	PROMPT "Enter Customer Account Number : " AND STORE IN cust.account_number;
+		validateInput(cust.account_number)
+			EXCEPTION 
+				WHEN InvalidInput_Exception THEN
+					PRINT errorMessage
+						Log errormessage in Log File
+	
+
+		// Every EXCEPTION Will RAISE EXCEPTION and Save errormessage in log file
+		
+		
+	PROMPT "Enter Customer Customer Name : " AND STORE IN cust.customer_name;
+		validateName(cust.customer_name)
+			EXCEPTION 
+				WHEN InvalidName_Exception THEN
+					PRINT errorMessage
+						Log errormessage in Log File
+			
+	
+	PROMPT "Enter Customer's Account Current Balance  : " AND STORE IN cust.current_balance;
+		validateInput(cust.current_balance)
+			EXCEPTION 
+				WHEN InvalidInput_Exception THEN
+					PRINT errorMessage
+						Log errormessage in Log File
+						
+	
+	
+	PROMPT "Enter Withdraw Amount : " AND STORE IN withdraw_amt
+		validateInput(withdraw_amt)
+			EXCEPTION 
+				WHEN InvalidInput_Exception THEN
+					PRINT errorMessage
+						Log errormessage in Log File
+	
+	
+	
+		IF(isAmountAvailable(cust, withdraw_amt))
+			DisplayCustomerDetails(cust,withdraw_amt)				
+		ELSE
+			PRINT ("Balance Amount "+cust.current_balance)
+			PRINT ("Withdraw Amount "+withdraw_amt)
+			PRINT ("Please Enter Withdraw Amount Less Than Your Current Balance Amount);
+		END IF
+		
+
+END
+
+
+/*********************************************************************
+* Module Name         : validateInput(DECIMAL input)
+* Input Parameters    : Decimal
+* Return Type         : EXCEPTION
+* Author              : Govind
+* Creation Date       : 12-09-2017
+* Description         : Checking input is digit or not And Raise EXCEPTION
+ *********************************************************************/
+
+SUB validateInput(DECIMAL input)
+	IF(! isDigits(input) || input < 0) THEN
+		RAISE InvalidInput_Exception "Input must be positive and digits only"
+	END IF
+END SUB
+
+
+/*********************************************************************
+* Module Name         : validateName(STRING input)
+* Input Parameters    : STRING
+* Return Type         : EXCEPTION
+* Author              : Govind
+* Creation Date       : 12-09-2017
+* Description         : Checking input is Alphabet or not And Raise EXCEPTION
+ *********************************************************************/
+
+SUB validateName(STRING input)
+	IF(! isAlpha(input)) THEN
+		RAISE InvalidInput_Exception "Customer Name must be in character"
+	END IF
+END SUB
+
+
+/*********************************************************************
+* Module Name         : isAmountAvailable(Customer c, withdrawAmt)
+* Input Parameters    : Customer c, withdrawAmt
+* Return Type         : BOOLEAN
+* Author              : Govind
+* Creation Date       : 12-09-2017
+* Description         : Checking withdraw amount with customer current balance amount 
+ *********************************************************************/
+
+BOOLEAN SUB isAmountAvailable(Customer c, withdrawAmt)
+	IF(c.current_balance < withdrawAmt)
+		RETURN FALSE
+	ELSE
+		RETURN TRUE
+END SUN
+
+
+/*********************************************************************
+* Module Name         : isAmountAvailable(Customer c, withdrawAmt)
+* Input Parameters    : Customer c, withdrawAmt
+* Return Type         : BOOLEAN
+* Author              : Govind
+* Creation Date       : 12-09-2017
+* Description         : Display Customer Details
+ *********************************************************************/
+
+SUB DisplayCustomerDetails(cust,withdraw_amt)	
+
+			PRINT ("Account Number "+cust.account_number)
+			PRINT ("Account Holder Name "+cust.customer_name)
+			PRINT ("Balance Amount "+cust.current_balance)
+			PRINT ("Withdraw Amount "+withdraw_amt)
+			
+			cust.current_balance = withdraw_amt = calculateAmount(cust,withdraw_amt);
+			
+			PRINT ("Remaining Balance in your Account is  "+cust.current_balance)
+END SUB
+
+
+/*********************************************************************
+* Module Name         : calculateAmount(cust,withdraw_amt)
+* Input Parameters    : Customer c, withdrawAmt
+* Return Type         : DECIMAL
+* Author              : Govind
+* Creation Date       : 12-09-2017
+* Description         : Calculate current balance of customer
+ *********************************************************************/
+
+DECIMAL SUB calculateAmount(cust,withdraw_amt)
+			cust.current_balance = cust.current_balance - withdraw_amt
+			RETURN(cust.current_balance)
+END SUB
