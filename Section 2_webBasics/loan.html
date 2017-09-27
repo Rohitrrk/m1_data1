@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link href="scripts/customer.css" rel="stylesheet"/>
+	<script src="scripts/loan.js"></script>
+	<script src="scripts/customerpreview.js"></script>
+	<title>customer incident form</title>
+	</head>
+	<body>
+	<form>
+		<table align="center">
+		<tr>
+			<td colspan="2">
+			<h1>Customer Incident Form</h1>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Do you have a loan already?</td>
+			<td>
+				Yes <input type="radio" id="txtyes" name="txtloan" value="yes" required="required"/>
+				No <input type="radio" id="txtno" name="txtloan" value="no" required="required"/>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Customer Name</td>
+			<td>
+				<input type="text" required maxlength="20" name="name" id="name" placeholder="name" pattern="[a-zA-Z]{4,}"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Mobile Number </td>
+			<td>
+				<input type="text" name="txtmob" id="txtmob" maxlength="10" placeholder="mobile number" pattern="[7-9][0-9]{9}" required/> 
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td>EmailId </td>
+			<td>
+				<input type="email" name="txtmail" id="txtmail" placeholder="email" maxlength="40" size="40" required/>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td>Proof of Identity</td>
+			<td>
+				<input type="checkbox" name="idProof" value="PAN CARD"  required>PAN CARD
+				<input type="checkbox" name="idProof" value="Voters Id" required>Voters Id </br>
+				<input type="checkbox" name="idProof" value=" Passport" required>Passport
+				<input type="checkbox" name="idProof" value="Driving License" required>Driving License
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Loan Amount</td>
+			<td>
+				<select name="ddlAmount" required>
+				<option value="">Loan amount</option>
+				<option value="50000 t0 100000">50000 t0 100000</option>
+					<option value="100001 to 200000">100001 to 200000</option>
+				<option value="200001 to 300000">200001 to 300000</option>
+				
+				</select>
+			</td>
+		</tr>
+		
+	
+		
+		
+		
+			<td></td>
+			<td>
+				<input class="btn" type="button" value="Apply Loan" onclick="loanDetails(name,txtmob,txtmail,idProof,ddlAmount)">
+				<input class="btn" type="submit" value="Reset" onclick="code_location(this.form)">
+			</td>
+		</tr>
+		</table>
+	</form>
+	</body>
+</html>
