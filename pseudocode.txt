@@ -1,0 +1,169 @@
+/*********************************************************************
+ * File                 : SummerCourse.txt
+ * Author Name          : Pavan Amgoth
+ * Desc                 : Program to calculate fee of HSC passed student 
+ *			  after discount for summer course based on their percentage.
+ * Version              : 1.0
+ * Last Modified Date   : 28-SEPT-2017
+ * Change Description   : Description about the changes implemented
+ *********************************************************************
+
+
+RECORD STUDENT
+
+	DECLARE name AS STRING
+	DECLARE percentage AS DECIMAL
+
+END RECORD
+
+
+
+BEGIN
+
+DECLARE fee AS DECIMAL
+DECLARE discount AS DECIMAL	
+
+	STUDENT std
+
+	DISPLAY "Enter Name"
+	ACCEPT  std.name
+
+
+
+	IF(isString(std.name))
+	{
+	
+		DISPLAY "Enter Percentage"
+		ACCEPT std.percentage
+
+			IF(isdecimal(std.percentage))
+			{
+
+				discount=checkDiscount(percantage)
+
+				fee=calculateFee(discount)
+
+				DISPLAY "The course fee is",fee
+			}
+
+			ELSE{
+				DISPLAY "Percentage should be number"
+			}
+	}
+	ELSE{
+
+		DISPLAY "Name should be String"
+	}
+
+
+	EXCEPTION
+	
+'		WHEN NotString
+			PrintError(errormessage)
+		WHEN NotDecimal
+			PrintError(errormessage) 
+
+
+END
+
+/*********************************************************************
+* Module Name         : checkDiscount(INTEGER)
+* Input Parameters    : INTEGER
+* Return Type         : DECIMAL
+* Author              : Pavan Amgoth
+* Creation Date       : 28-SEPT-2017
+* Description         : Applying discount on the course fee based on percentage
+ *********************************************************************/
+
+
+
+DECIMAL SUB checkDiscount(INTEGER percentage)
+{
+	IF(std.percentage >90)
+	{
+		RETURN 0.50
+	}
+	ELSE IF(std.percentage >80)
+	{
+		RETURN 0.40
+	}
+	ELSE IF(std.percentage >70)
+	{
+		RETURN 0.30
+	}
+	ELSE
+	{
+		RETURN 0
+	}
+}
+
+
+/*********************************************************************
+* Module Name         : calculateFee(INTEGER)
+* Input Parameters    : INTEGER
+* Return Type         : DECIMAL
+* Author              : Pavan Amgoth
+* Creation Date       : 28-SEPT-2017
+* Description         : Calculate fee after discount
+ *********************************************************************/
+
+
+DECIMAL SUB calculateFee(INTEGER discount)
+{
+  INITIALISE basic TO 6000
+
+	fee= basic - discount * basic
+  
+  RETURN fee
+}
+
+
+
+/*********************************************************************
+* Module Name         : isString(String)
+* Input Parameters    : STRING
+* Return Type         : BOOLEAN
+* Author              : Pavan Amgoth
+* Creation Date       : 28-SEPT-2017
+* Description         : check if the name is valid name in string format
+ *********************************************************************/
+
+
+BOOLEAN SUB isString(String name)
+{
+
+	IF(name is string)
+	{
+		RETURN true
+	}ELSE{
+		RAISE NotString("Name should be String")
+		RETURN false
+
+	}
+}
+
+
+/*********************************************************************
+* Module Name         : isDecimal(INTEGER)
+* Input Parameters    : INTEGER
+* Return Type         : BOOLEAN
+* Author              : Pavan Amgoth
+* Creation Date       : 28-SEPT-2017
+* Description         : Check if the percentage is decimal number
+ *********************************************************************/
+
+BOOLEAN SUB isDecimal(INTEGER percentage)
+{
+
+	IF(percentage is decimal)
+	{
+		RETURN true
+	}ELSE{
+		RAISE NotDecimal("Percentage should be Decimal)
+		RETURN false
+
+	}
+}
+
+
+
